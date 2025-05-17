@@ -1,0 +1,94 @@
+<header class="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+    <div class="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
+        <a class="block text-teal-600 dark:text-teal-300" routerLink="inicio">
+            <span class="sr-only">Home</span>
+            <img src="assets/images/bikeTrack-nobg.png" alt="BikeTrack - Home" class="h-30 w-auto">
+        </a>
+
+        <div class="flex flex-1 items-center justify-end md:justify-between">
+            <nav aria-label="Global" class="hidden md:block">
+               <ul class="flex items-center gap-6 text-sm">
+                    <li>
+                        <a class="font-semibold rounded-lg text-gray-200 transition hover:text-gray-200/75 dark:text-gray dark:hover:text-gray/75"
+                            routerLink="inicio">
+                            Inicio
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="font-semibold rounded-lg text-gray-200 transition hover:text-gray-200/75 dark:text-gray dark:hover:text-gray/75"
+                            href="#">
+                            Motos De Ocasion
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="font-semibold rounded-lg text-gray-200 transition hover:text-gray-200/75 dark:text-gray dark:hover:text-gray/75"
+                            href="#">
+                            Estadisticas
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="font-semibold rounded-lg text-gray-200 transition hover:text-gray-200/75 dark:text-gray dark:hover:text-gray/75"
+                            href="#">
+                            Sobre Nosotros
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="font-semibold rounded-lg text-gray-200 transition hover:text-gray-200/75 dark:text-gray dark:hover:text-gray/75"
+                            href="#">
+                            Contacto
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="flex items-center gap-4">
+
+                @if(loged == true){
+
+                <div class="hidden md:block">
+                    <a class="font-semibold rounded-lg text-black-500 transition hover:text-black-500/75 dark:text-black dark:hover:text-black/75"
+                        >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
+                            <path fill="#fff"
+                                d="M2.787 2.28a.75.75 0 0 1 .932.508l.55 1.862h14.655c1.84 0 3.245 1.717 2.715 3.51l-1.655 5.6c-.352 1.194-1.471 1.99-2.715 1.99H8.113c-1.244 0-2.362-.796-2.715-1.99L2.281 3.213a.75.75 0 0 1 .506-.932M6.25 19.5a2.25 2.25 0 1 1 4.5 0a2.25 2.25 0 0 1-4.5 0m8 0a2.25 2.25 0 1 1 4.5 0a2.25 2.25 0 0 1-4.5 0" />
+                        </svg> </a>
+                </div>
+
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <circle cx="12" cy="6" r="4" fill="#fff" />
+                        <path fill="#fff"
+                            d="M20 17.5c0 2.485 0 4.5-8 4.5s-8-2.015-8-4.5S7.582 13 12 13s8 2.015 8 4.5" />
+                    </svg>
+                </div>
+                } @else{
+                <div class="sm:flex sm:gap-4">
+                    <a class="block rounded-md bg-red-700 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-red-500 dark:hover:bg-red-800"
+                        routerLink="/login">
+                        Login
+                    </a>
+
+                    <a class="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 transition hover:text-teal-600/75 sm:block dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
+                       routerLink="/register">
+                        Registrarse
+                    </a>
+                </div>
+                }
+
+
+                <button
+                    class="block rounded-sm bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden dark:bg-gray-800 dark:text-white dark:hover:text-white/75">
+                    <span class="sr-only">Toggle menu</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</header> 
