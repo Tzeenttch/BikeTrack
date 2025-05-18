@@ -1,84 +1,495 @@
-
 <!--Añadir imagen encabezado-->
 
-<section class="bg-gray-50 dark:bg-gray-900">
-    <div class="max-w-6xl mx-auto p-4 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-6">
-        @for (numero of numeros; track $index) {
+<body class="bg-gray-50 dark:bg-gray-900">
 
-        <!--Div de la card-->
-        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-            <a href="#">
-                <img class="rounded-t-lg" src="assets/images/bikeTrack-moto.png" alt="" />
-            </a>
-            <div class="p-5">
-                <a href="#">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Yamaha R6</h5>
-                </a>
+    <!--Imagen principal-->
+    <div
+        class="relative w-full max-w-7xl rounded-2xl overflow-hidden max-w-6xl mx-auto px-4 text-left py-4 bg-gray-50 dark:bg-gray-900">
+        <img src="assets/images/background_r9.jpg" alt="Main Image" class="w-full h-[60vh] object-cover rounded-2xl">
+        <div
+            class="absolute top-6 left-6 bg-black/60 text-white p-6 rounded-xl backdrop-blur-sm animate__animated animate__fadeInDown animate__slow">
+            <h2 class="text-2xl font-bold mb-2">
+                <span>Encuentra tu moto ideal </span><br>
+                <span>rapido y facil con</span>
+                <h2 class="font-bold text-red-600">BikeTrack</h2>
+            </h2>
+            <button class="cursor-pointer mt-2 px-4 py-2 bg-red-600 hover:bg-red-700 rounded-lg text-white transition">
+                Contactanos
+            </button>
+        </div>
+    </div>
 
-                <!--Card KM-->
-                <div class="flex items-center text-gray-700 dark:text-gray-400 mb-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 100 100"
-                        fill="currentColor">
-                        <path
-                            d="M21 32C9.459 32 0 41.43 0 52.94c0 4.46 1.424 8.605 3.835 12.012l14.603 25.244c2.045 2.672 3.405 2.165 5.106-.14l16.106-27.41a20.7 20.7 0 0 0 2.35-9.706C42 41.43 32.544 32 21 32zm0 9.812c6.216 0 11.16 4.931 11.16 11.129S27.215 64.068 21 64.068 9.84 59.138 9.84 52.941 14.786 41.812 21 41.812zM87.75 0C81.018 0 75.5 5.501 75.5 12.216c0 2.601.83 5.019 2.237 7.006l8.519 14.726c1.193 1.558 1.986 1.262 2.978-.082l9.395-15.99a12 12 0 0 0 1.37-5.66C100 5.5 94.484 0 87.75 0zm0 5.724c3.626 0 6.51 2.876 6.51 6.492s-2.884 6.49-6.51 6.49-6.51-2.875-6.51-6.49 2.885-6.492 6.51-6.492z" />
-                        <path fill-rule="evenodd"
-                            d="M88.209 37.412a192 192 0 0 0-6.757.312l.348 5.532a126 126 0 0 1 6.513-.303zm-11.975.82a83 83 0 0 0-10.43 2.032l1.303 5.361a55 55 0 0 1 9.711-1.886zm-15.611 3.888a24 24 0 0 0-7.017 5.15c-.857 1.157-1.558 2.62-1.722 4.35l5.095.565c.038-.406.246-.942.62-1.446a11 11 0 0 1 2.582-2.235 20 20 0 0 1 2.388-1.256zm-2.623 12.535-3.303 4.235a13 13 0 0 0 2.417 1.731c2.632 1.497 5.346 2.342 7.862 3.144l1.446-5.318a46 46 0 0 1-6.918-2.73c-.582-.338-1.092-.691-1.504-1.068zm13.335 5.294-1.412 5.327 1.488.47a44 44 0 0 1 7.638 3.131l2.358-4.92a34 34 0 0 0-8.538-3.525zm14.867 7.7-3.623 3.92a7 7 0 0 1 1.811 3.203c.372 1.345.373 2.927.082 4.525l5.024 1.072c.41-2.256.476-4.733-.198-7.178a11 11 0 0 0-3.096-5.542zM82.72 82.643a17 17 0 0 1-7.938 4.612l1.654 5.244a35 35 0 0 0 7.245-3.635 17 17 0 0 0 2.639-2.287zm-12.64 6.089a93 93 0 0 1-9.821 2.08l.784 5.479a101 101 0 0 0 10.27-2.18zm-14.822 2.836a197 197 0 0 1-10.084 1.148l.442 5.522a183 183 0 0 0 10.285-1.17zm-15.155 1.583a269 269 0 0 1-10.162.67l.256 5.536a335 335 0 0 0 10.28-.678zm-15.259.92a560 560 0 0 1-6.114.245l.168 5.541a560 560 0 0 0 6.166-.246z" />
-                    </svg>
-                    <p class="font-normal ml-2">12.000 km</p>
-                </div>
+    <!--Texto entre imagen y productos-->
+    <div @fadeSlideLeft class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 max-w-3xl mx-auto text-center">
+        <p class="text-gray-900 dark:text-gray-100 text-xl md:text-2xl font-semibold">
+            Explora la gama de motos en <span class="text-red-700">bikeTrack</span>, descubre ofertas únicas y encuentra
+            la compañera perfecta para cada aventura.
+        </p>
+    </div>
 
-                <!--Card Año-->
-                <div class="flex items-center text-gray-700 dark:text-gray-400 mb-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 2048 2048"
-                        fill="currentColor">
-                        <path
-                            d="M1664 512h256v1536H256V512h256V384h128v128h896V384h128zm128 128h-128v128h128zm-256 0H640v128h896zm-1024 0H384v128h128zM384 1920h1408V896H384zM256 384V256H128v1408H0V128h256V0h128v128h896V0h128v128h256v128h-256v128h-128V256H384v128zm384 1024v-128h128v128zm256 0v-128h128v128zm256 0v-128h128v128zm256 0v-128h128v128z..." />
-                    </svg>
-                    <p class="font-normal ml-2">2022</p>
-                </div>
+    <!--Barra de busqueda-->
+    <div class="m-6">
+        <form class="w-full max-w-6xl mx-auto">
+            <div
+                class="flex items-center border border-gray-300 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-900 shadow-sm focus-within:ring-2 focus-within:ring-gray-700">
+                <input type="text" placeholder="Buscar..."
+                    class="flex-grow px-4 py-2 text-gray-900 dark:text-gray-100 bg-transparent focus:outline-none rounded-l-lg placeholder-gray-400 dark:placeholder-gray-500" />
+                <button type="submit"
+                    class="px-4 py-2 bg-red-700 text-white font-semibold rounded-r-lg hover:bg-red-800 transition cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48">
+                        <g fill="none" stroke="#fff" stroke-linejoin="round" stroke-width="4">
+                            <path d="M21 38c9.389 0 17-7.611 17-17S30.389 4 21 4S4 11.611 4 21s7.611 17 17 17Z" />
+                            <path stroke-linecap="round"
+                                d="M26.657 14.343A7.98 7.98 0 0 0 21 12a7.98 7.98 0 0 0-5.657 2.343m17.879 18.879l8.485 8.485" />
+                        </g>
+                    </svg> </button>
+            </div>
+        </form>
+    </div>
 
-                <!--Card Disponibilidad-->
-                <div class="flex items-center text-gray-700 dark:text-gray-400 mb-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                        fill="currentColor">
-                        <path
-                            d="M21.546 5.111a1.5 1.5 0 0 1 0 2.121L10.303 18.475a1.6 1.6 0 0 1-2.263 0L2.454 12.89a1.5 1.5 0 1 1 2.121-2.121l4.596 4.596L19.424 5.111a1.5 1.5 0 0 1 2.122 0" />
-                    </svg>
-                    <p class="font-normal ml-2">Disponible</p>
-                </div>
 
-                <!--Card Carnet-->
-                <div class="flex items-center text-gray-700 dark:text-gray-400 mb-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2 -translate-y-0.5" viewBox="0 0 24 24"
-                        fill="currentColor">
-                        <path
-                            d="M2 3h20c1.05 0 2 .95 2 2v14c0 1.05-.95 2-2 2H2c-1.05 0-2-.95-2-2V5c0-1.05.95-2 2-2m12 3v1h8V6zm0 2v1h8V8zm0 2v1h7v-1zm-6 3.91C6 13.91 2 15 2 17v1h12v-1c0-2-4-3.09-6-3.09M8 6a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3" />
-                    </svg>
-                    <p class=" mb-1 font-normal">A</p>
-                </div>
-                
-                <!--Card Precio-->
-                <div class="flex items-center text-gray-700 dark:text-gray-400 mb-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2 -translate-y-0.5" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2">
-                        <path
-                            d="M16 16c0-1.105-3.134-2-7-2s-7 .895-7 2s3.134 2 7 2s7-.895 7-2ZM2 16v4.937C2 22.077 5.134 23 9 23s7-.924 7-2.063V16M9 5c-4.418 0-8 .895-8 2s3.582 2 8 2M1 7v5c0 1.013 3.582 2 8 2M23 4c0-1.105-3.1-2-6.923-2s-6.923.895-6.923 2s3.1 2 6.923 2S23 5.105 23 4Zm-7 12c3.824 0 7-.987 7-2V4M9.154 4v10.166M9 9c0 1.013 3.253 2 7.077 2S23 10.013 23 9" />
-                    </svg>
-                    <p class="font-normal">Price: 11.000€</p>
-                </div>
 
-                <!--Boton-->
-                <a href="#"
-                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none dark:bg-red-700 dark:hover:bg-red-800">
-                    Mas informacion
-                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                        fill="none" viewBox="0 0 14 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M1 5h12m0 0L9 1m4 4L9 9" />
-                    </svg>
-                </a>
+    <!--Section de las cards-->
+    <section id="main-container" class="bg-gray-50 dark:bg-gray-900">
+
+        <!--Boton añadir-->
+        <div class="max-w-7xl mx-auto px-4 text-left py-4 bg-gray-50 dark:bg-gray-900">
+            <div (click)="openModalAdd('add')"
+                class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 focus:ring-4 focus:outline-none cursor-pointer dark:hover:bg-indigo-700 transition-colors duration-300">
+                Añadir Moto
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                    <path fill="#fff"
+                        d="M13 6a1 1 0 1 0-2 0v5H6a1 1 0 1 0 0 2h5v5a1 1 0 1 0 2 0v-5h5a1 1 0 1 0 0-2h-5z" />
+                </svg>
             </div>
         </div>
-        }
-    </div>
-</section>
+
+        <!-- Modal boton añadir-->
+        <div *ngIf="modalType === 'add'" class="fixed inset-0 flex items-center justify-center z-50"
+            style="background-color: rgba(44, 43, 43, 0.3);">
+            <div class="bg-white dark:bg-gray-700 rounded-lg p-6 w-96 relative">
+                <h2 class="text-xl font-bold mb-4 text-white">Añadir Motocicleta</h2>
+
+                <form #addForm="ngForm" (ngSubmit)="onAddMotorbike(addForm)"
+                    class="max-w-sm mx-auto h-[600px] overflow-y-auto p-4 border border-gray-300 rounded-lg dark:border-gray-600 bg-gray-50 dark:bg-gray-800">
+
+                    <div class="mb-5">
+                        <label for="brand"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Marca</label>
+                        <input type="text" id="brand" name="brand" ngModel
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
+                            placeholder="Yamaha" required />
+                    </div>
+
+                    <div class="mb-5">
+                        <label for="model"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Modelo</label>
+                        <input type="text" id="model" name="model" ngModel
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
+                            placeholder="YZF-R1" required />
+                    </div>
+
+                    <div class="mb-5">
+                        <label for="year"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Año</label>
+                        <input type="number" id="year" name="year" ngModel
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
+                            placeholder="2020" required />
+                    </div>
+
+                    <div class="mb-5">
+                        <label for="km" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kilometros
+                            (KM)</label>
+                        <input type="number" id="km" name="km" ngModel
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
+                            placeholder="0" required />
+                    </div>
+
+                    <div class="mb-5">
+                        <label for="imageUrl"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Imagen
+                            URL</label>
+                        <input type="url" id="imageUrl" name="imageUrl" ngModel
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
+                            placeholder="images/motorbikes/nombre_imagen" required />
+                    </div>
+
+                    <div class="mb-5">
+                        <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Precio
+                            (€)</label>
+                        <input type="number" step="0.01" id="price" name="price" ngModel
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
+                            placeholder="21000.00€" required />
+                    </div>
+
+                    <div class="mb-5">
+                        <label for="description"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Descripcion</label>
+                        <input id="description" rows="3" name="description" ngModel
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
+                            placeholder="Descripcion de la motocicleta." required>
+                    </div>
+
+                    <div class="flex items-center mb-5">
+                        <input id="available" type="checkbox" name="available" ngModel
+                            class="w-4 h-4 border border-gray-300 rounded-sm bg-gray-50 focus:ring-3 focus:ring-indigo-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-indigo-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" />
+                        <label for="available"
+                            class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Disponible</label>
+                    </div>
+
+                    <div class="flex items-center mb-5">
+                        <input id="isNew" type="checkbox" name="isNew" ngModel
+                            class="w-4 h-4 border border-gray-300 rounded-sm bg-gray-50 focus:ring-3 focus:ring-indigo-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-indigo-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" />
+                        <label for="isNew"
+                            class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nueva</label>
+                    </div>
+
+                    <div class="mb-5">
+                        <label for="horsePower"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Caballos (CV)</label>
+                        <input type="number" id="horsePower" name="horsePower" ngModel
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
+                            placeholder="200" required />
+                    </div>
+
+                    <div class="mb-5">
+                        <label for="cc" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cilindrada
+                            (CC)</label>
+                        <input type="number" id="cc" name="cc" ngModel
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
+                            placeholder="998" required />
+                    </div>
+
+                    <!--Al usar ngClass para asignar una clase para que cambie de forma dinamica debo de gestionar todo lo que vaya a cambiar en el ngClass. 
+                Ejemplo si voy a cambiar los colores se deben gestionar en el ngClass no puedo gestionar colores por defecto en el "class" y cuando se cumpla una condicion cambiarlo en el "ngClass"-->
+                    <button [disabled]="addForm.invalid"
+                        [ngClass]="{'bg-gray-200 dark:bg-red-400 text-gray-900': addForm.invalid, 'bg-red-700 hover:bg-red-800 text-white dark:bg-red-600 dark:hover:bg-red-700 cursor-pointer': addForm.valid}"
+                        type="submit"
+                        class="focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:focus:ring-red-800">
+                        {{ addForm.invalid ? 'Completa el formulario' : 'Añadir Motocicleta' }}
+                    </button>
+
+                </form>
+
+
+
+                <button (click)="closeModal()" id="add-form-close-button"
+                    class="absolute top-3 right-3 text-white hover:text-red-600 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                        <g fill="currentColor" fill-rule="evenodd">
+                            <path
+                                d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+                            <path fill="currentColor"
+                                d="m12 14.122l5.303 5.303a1.5 1.5 0 0 0 2.122-2.122L14.12 12l5.304-5.303a1.5 1.5 0 1 0-2.122-2.121L12 9.879L6.697 4.576a1.5 1.5 0 1 0-2.122 2.12L9.88 12l-5.304 5.304a1.5 1.5 0 1 0 2.122 2.12z" />
+                        </g>
+                    </svg>
+                </button>
+
+            </div>
+        </div>
+
+        <!--Div de la card-->
+        <div @fadeSlideUp class="max-w-7xl mx-auto p-4 grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-6">
+
+            <div *ngFor="let moto of motorbikes; let i = index"
+                class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+
+                <a href="#"
+                    class="block max-w-sm mx-auto bg-gray-700 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 p-4">
+                    <div class="rounded-xl overflow-hidden mb-4">
+                        <img class="w-full h-64 object-contain bg-white" [src]="'assets/' + moto.imageUrl"
+                            alt="{{ moto.model }}" />
+                    </div>
+
+                    <div class="text-center text-gray-300">
+                        <h2 class="text-lg font-semibold">{{ moto.model }}</h2>
+                        <p class="text-gray-500">{{ moto.brand }} • {{ moto.year }}</p>
+                    </div>
+                </a>
+
+                <div class="p-5">
+
+                    <!--Card KM-->
+                    <div class="flex items-center text-gray-700 dark:text-gray-400 mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 100 100"
+                            fill="currentColor">
+                            <path
+                                d="M21 32C9.459 32 0 41.43 0 52.94c0 4.46 1.424 8.605 3.835 12.012l14.603 25.244c2.045 2.672 3.405 2.165 5.106-.14l16.106-27.41a20.7 20.7 0 0 0 2.35-9.706C42 41.43 32.544 32 21 32zm0 9.812c6.216 0 11.16 4.931 11.16 11.129S27.215 64.068 21 64.068 9.84 59.138 9.84 52.941 14.786 41.812 21 41.812zM87.75 0C81.018 0 75.5 5.501 75.5 12.216c0 2.601.83 5.019 2.237 7.006l8.519 14.726c1.193 1.558 1.986 1.262 2.978-.082l9.395-15.99a12 12 0 0 0 1.37-5.66C100 5.5 94.484 0 87.75 0zm0 5.724c3.626 0 6.51 2.876 6.51 6.492s-2.884 6.49-6.51 6.49-6.51-2.875-6.51-6.49 2.885-6.492 6.51-6.492z" />
+                            <path fill-rule="evenodd"
+                                d="M88.209 37.412a192 192 0 0 0-6.757.312l.348 5.532a126 126 0 0 1 6.513-.303zm-11.975.82a83 83 0 0 0-10.43 2.032l1.303 5.361a55 55 0 0 1 9.711-1.886zm-15.611 3.888a24 24 0 0 0-7.017 5.15c-.857 1.157-1.558 2.62-1.722 4.35l5.095.565c.038-.406.246-.942.62-1.446a11 11 0 0 1 2.582-2.235 20 20 0 0 1 2.388-1.256zm-2.623 12.535-3.303 4.235a13 13 0 0 0 2.417 1.731c2.632 1.497 5.346 2.342 7.862 3.144l1.446-5.318a46 46 0 0 1-6.918-2.73c-.582-.338-1.092-.691-1.504-1.068zm13.335 5.294-1.412 5.327 1.488.47a44 44 0 0 1 7.638 3.131l2.358-4.92a34 34 0 0 0-8.538-3.525zm14.867 7.7-3.623 3.92a7 7 0 0 1 1.811 3.203c.372 1.345.373 2.927.082 4.525l5.024 1.072c.41-2.256.476-4.733-.198-7.178a11 11 0 0 0-3.096-5.542zM82.72 82.643a17 17 0 0 1-7.938 4.612l1.654 5.244a35 35 0 0 0 7.245-3.635 17 17 0 0 0 2.639-2.287zm-12.64 6.089a93 93 0 0 1-9.821 2.08l.784 5.479a101 101 0 0 0 10.27-2.18zm-14.822 2.836a197 197 0 0 1-10.084 1.148l.442 5.522a183 183 0 0 0 10.285-1.17zm-15.155 1.583a269 269 0 0 1-10.162.67l.256 5.536a335 335 0 0 0 10.28-.678zm-15.259.92a560 560 0 0 1-6.114.245l.168 5.541a560 560 0 0 0 6.166-.246z" />
+                        </svg>
+                        <p class="font-normal ml-2">{{moto.km}} km</p>
+                    </div>
+
+                    <!--Card Año-->
+                    <div class="flex items-center text-gray-700 dark:text-gray-400 mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 2048 2048"
+                            fill="currentColor">
+                            <path
+                                d="M1664 512h256v1536H256V512h256V384h128v128h896V384h128zm128 128h-128v128h128zm-256 0H640v128h896zm-1024 0H384v128h128zM384 1920h1408V896H384zM256 384V256H128v1408H0V128h256V0h128v128h896V0h128v128h256v128h-256v128h-128V256H384v128zm384 1024v-128h128v128zm256 0v-128h128v128zm256 0v-128h128v128zm256 0v-128h128v128z..." />
+                        </svg>
+                        <p class="font-normal ml-2">{{moto.year}}</p>
+                    </div>
+
+                    <!--Card Disponibilidad-->
+                    <div class="flex items-center text-gray-700 dark:text-gray-400 mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path
+                                d="M21.546 5.111a1.5 1.5 0 0 1 0 2.121L10.303 18.475a1.6 1.6 0 0 1-2.263 0L2.454 12.89a1.5 1.5 0 1 1 2.121-2.121l4.596 4.596L19.424 5.111a1.5 1.5 0 0 1 2.122 0" />
+                        </svg>
+                        <p class="font-normal ml-2">{{moto.available == true ? 'Disponible' : 'No disponible'}}</p>
+                    </div>
+
+                    <!--Card Carnet-->
+                    <div class="flex items-center text-gray-700 dark:text-gray-400 mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2 -translate-y-0.5"
+                            viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M2 3h20c1.05 0 2 .95 2 2v14c0 1.05-.95 2-2 2H2c-1.05 0-2-.95-2-2V5c0-1.05.95-2 2-2m12 3v1h8V6zm0 2v1h8V8zm0 2v1h7v-1zm-6 3.91C6 13.91 2 15 2 17v1h12v-1c0-2-4-3.09-6-3.09M8 6a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3" />
+                        </svg>
+                        <p class=" mb-1 font-normal">{{getLicenseType(moto)}}</p>
+                    </div>
+
+                    <!--Card Precio-->
+                    <div class="flex items-center text-gray-700 dark:text-gray-400 mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2 -translate-y-0.5"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M16 16c0-1.105-3.134-2-7-2s-7 .895-7 2s3.134 2 7 2s7-.895 7-2ZM2 16v4.937C2 22.077 5.134 23 9 23s7-.924 7-2.063V16M9 5c-4.418 0-8 .895-8 2s3.582 2 8 2M1 7v5c0 1.013 3.582 2 8 2M23 4c0-1.105-3.1-2-6.923-2s-6.923.895-6.923 2s3.1 2 6.923 2S23 5.105 23 4Zm-7 12c3.824 0 7-.987 7-2V4M9.154 4v10.166M9 9c0 1.013 3.253 2 7.077 2S23 10.013 23 9" />
+                        </svg>
+                        <p class="font-normal">{{moto.price}}€</p>
+                    </div>
+
+                    <!-- Botones de la card-->
+                    <div class="flex justify-between items-center mt-4">
+                        <!-- Botón Mas informacion -->
+                        <a href="#"
+                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none dark:bg-red-700 dark:hover:bg-red-800 transition-colors duration-300">
+                            Más información
+                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                            </svg>
+                        </a>
+
+                        <div class="flex gap-2">
+                            <!--Boton Editar-->
+                            <div id="updateMotorbikeModal" (click)="openModal(moto, 'edit')"
+                                class="p-2 rounded-md bg-indigo-600 hover:bg-indigo-700 text-white transition-colors duration-300 cursor-pointer">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="#fff"
+                                        d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75zM20.71 7.04a.996.996 0 0 0 0-1.41l-2.34-2.34a.996.996 0 0 0-1.41 0l-1.83 1.83l3.75 3.75z" />
+                                </svg>
+                            </div>
+
+                            <!--Modal de boton editar-->
+                            <div *ngIf="modalType === 'edit'"
+                                class="fixed inset-0 flex items-center justify-center z-50"
+                                style="background-color: rgba(44, 43, 43, 0.3);">
+                                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 w-96 relative">
+                                    <h2 class="text-xl font-bold mb-4 text-white">Editar Motocicleta
+                                        {{selectedMotorbike.brand}}
+                                        {{selectedMotorbike.model}}</h2>
+
+                                    <form #editForm="ngForm"
+                                        class="max-w-sm mx-auto h-[600px] overflow-y-auto p-4 border border-gray-300 rounded-lg dark:border-gray-600 bg-gray-50 dark:bg-gray-800">
+
+                                        <input type="hidden" name="id" id="id" ngModel="{{editMotorbike.id}}">
+
+                                        <div class="mb-5">
+                                            <label for="brand"
+                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Marca</label>
+                                            <input type="text" id="brand" name="brand" ngModel="{{editMotorbike.brand}}"
+                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
+                                                [(ngModel)]="selectedMotorbike.brand" required />
+                                        </div>
+
+                                        <div class="mb-5">
+                                            <label for="model"
+                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Modelo</label>
+                                            <input type="text" id="model" name="model" ngModel="{{editMotorbike.model}}"
+                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
+                                                [(ngModel)]="selectedMotorbike.model" required />
+                                        </div>
+
+                                        <div class="mb-5">
+                                            <label for="year"
+                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Año</label>
+                                            <input type="number" id="year" name="year" ngModel="{{editMotorbike.year}}"
+                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
+                                                [(ngModel)]="selectedMotorbike.year" required />
+                                        </div>
+
+                                        <div class="mb-5">
+                                            <label for="km"
+                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kilometros
+                                                (KM)</label>
+                                            <input type="number" id="km" name="km" ngModel="{{editMotorbike.km}}"
+                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
+                                                [(ngModel)]="selectedMotorbike.km" required />
+                                        </div>
+
+                                        <div class="mb-5">
+                                            <label for="imageUrl"
+                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Imagen
+                                                URL</label>
+                                            <input type="url" id="imageUrl" name="imageUrl"
+                                                ngModel="{{editMotorbike.imageUrl}}"
+                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
+                                                [(ngModel)]="selectedMotorbike.imageUrl" required />
+                                        </div>
+
+                                        <div class="mb-5">
+                                            <label for="price"
+                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Precio
+                                                (€)</label>
+                                            <input type="number" step="0.01" id="price" name="price"
+                                                ngModel="{{editMotorbike.price}}"
+                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
+                                                [(ngModel)]="selectedMotorbike.price" required />
+                                        </div>
+
+                                        <div class="mb-5">
+                                            <label for="description"
+                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Descripcion</label>
+                                            <input id="description" rows="3" name="description"
+                                                ngModel="{{editMotorbike.description}}"
+                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
+                                                [(ngModel)]="selectedMotorbike.description" required>
+                                        </div>
+
+                                        <div class="mb-5">
+                                            <label for="horsePower"
+                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Caballos
+                                                (CV)</label>
+                                            <input type="number" id="horsePower" name="horsePower"
+                                                ngModel="{{editMotorbike.horsePower}}"
+                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
+                                                [(ngModel)]="selectedMotorbike.horsePower" required />
+                                        </div>
+
+                                        <div class="mb-5">
+                                            <label for="cc"
+                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cilindrada
+                                                (CC)</label>
+                                            <input type="number" id="cc" name="cc" ngModel="{{editMotorbike.cc}}"
+                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
+                                                [(ngModel)]="selectedMotorbike.cc" required />
+                                        </div>
+
+                                        <button type="submit" (click)="onUpdateMotorbike(editForm.value)"
+                                            class="cursor-pointer text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Editar
+                                            Motocicleta</button>
+                                    </form>
+
+                                    <button (click)="closeModal()" id="update-form-close-button"
+                                        class="absolute top-3 right-3 text-white hover:text-red-600 cursor-pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 24 24">
+                                            <g fill="currentColor" fill-rule="evenodd">
+                                                <path
+                                                    d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+                                                <path fill="currentColor"
+                                                    d="m12 14.122l5.303 5.303a1.5 1.5 0 0 0 2.122-2.122L14.12 12l5.304-5.303a1.5 1.5 0 1 0-2.122-2.121L12 9.879L6.697 4.576a1.5 1.5 0 1 0-2.122 2.12L9.88 12l-5.304 5.304a1.5 1.5 0 1 0 2.122 2.12z" />
+                                            </g>
+                                        </svg>
+                                    </button>
+
+                                </div>
+                            </div>
+
+
+                            <!--Boton Eliminar-->
+                            <div id="deleteMotorbikeModal" (click)="openModal(moto, 'delete')"
+                                class="p-2 rounded-md bg-red-600 hover:bg-red-800 text-white transition-colors duration-300 cursor-pointer">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="currentColor"
+                                        d="M7 21q-.825 0-1.412-.587T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.587 1.413T17 21zM17 6H7v13h10zM9 17h2V8H9zm4 0h2V8h-2zM7 6v13z" />
+                                </svg>
+                            </div>
+
+                            <!--Modal de boton eliminar-->
+                            <div *ngIf="modalType === 'delete'"
+                                class="fixed inset-0 flex items-center justify-center z-50"
+                                style="background-color: rgba(44, 43, 43, 0.3);">
+                                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 w-96 relative">
+                                    <h2 class="text-xl font-bold mb-4 text-white">¿Estas seguro de <h2
+                                            class="text-red-600">
+                                            elminar</h2> la Motocicleta {{selectedMotorbike.brand}}
+                                        {{selectedMotorbike.model}} ? </h2>
+
+                                    <a href="#"
+                                        class="block max-w-sm mx-auto bg-gray-700 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 p-4 mb-4">
+                                        <div class="rounded-xl overflow-hidden mb-4">
+                                            <img class="w-full h-64 object-contain bg-white"
+                                                [src]="'assets/' + selectedMotorbike.imageUrl"
+                                                alt="{{ selectedMotorbike.model }}" />
+                                        </div>
+
+                                    </a>
+
+                                    <button (click)="closeModal()" id="delete-close-button"
+                                        class="absolute top-3 right-3 text-white hover:text-red-600 cursor-pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 24 24">
+                                            <g fill="currentColor" fill-rule="evenodd">
+                                                <path
+                                                    d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+                                                <path fill="currentColor"
+                                                    d="m12 14.122l5.303 5.303a1.5 1.5 0 0 0 2.122-2.122L14.12 12l5.304-5.303a1.5 1.5 0 1 0-2.122-2.121L12 9.879L6.697 4.576a1.5 1.5 0 1 0-2.122 2.12L9.88 12l-5.304 5.304a1.5 1.5 0 1 0 2.122 2.12z" />
+                                            </g>
+                                        </svg>
+                                    </button>
+
+                                    <button (click)="closeModal()"
+                                        class="cursor-pointer text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-600 dark:hover:bg-gray-800 focus:outline-none dark:focus:ring-gray-800">Cancelar</button>
+                                    <button type="submit" (click)="onDeleteMotorbike(deleteMotorbike.id)"
+                                        class="cursor-pointer text-white bg-red-700 hover:bg-red-900 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-900 focus:outline-none dark:focus:ring-red-900">Eliminar</button>
+
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!--Google Maps y ultimo CTA-->
+    <section class="pb-10">
+
+        <div
+            class="flex flex-col items-center bg-gray-50 dark:bg-gray-800 py-12 px-6 rounded-lg shadow-lg mt-12 max-w-7xl mx-auto text-center pb-5">
+            <h3 class="text-3xl font-bold text-white mb-6">
+                ¿Listo para empezar tu próxima aventura sobre dos ruedas?
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300 mb-8 max-w-xl">
+                Contáctanos hoy mismo o visitanos en nuestra tienda fisica y descubre nuestras ofertas exclusivas y la
+                moto perfecta para ti.
+            </p>
+            <button
+                class="bg-red-700 hover:bg-red-800 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-300 cursor-pointer">
+                Contactanos
+            </button>
+        </div>
+
+        <div class="flex flex-col items-center py-8 px-4">
+            <div
+                class="w-full max-w-7xl rounded-lg overflow-hidden shadow-lg border border-gray-300 dark:border-gray-700">
+                <iframe class="w-full"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3170.1221761667684!2d-5.94453988781792!3d37.386942834288384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd126edf6bffeeb7%3A0x3fd8e9f0d6ca50b3!2sEduardo%20Castro%20Motos.!5e0!3m2!1ses!2ses!4v1747603618455!5m2!1ses!2ses"
+                    height="450" style="border:0;"></iframe>
+            </div>
+        </div>
+
+    </section>
+
+
+
+</body>

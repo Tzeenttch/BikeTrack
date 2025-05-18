@@ -1,0 +1,6 @@
+/*Estilos para la barra de scroll lateral de los formularios*/
+form {
+    scrollbar-width: thin;
+    scrollbar-color: #4f46e5 #374151;
+}
+

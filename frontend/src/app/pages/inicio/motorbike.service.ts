@@ -2,12 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Motorbike } from '../../shared/models/motorbike';
+import { environment } from '../../../environment/environment';
 
+//Al usar este injectable no es necesario usarlo como provider en el comonente
 @Injectable({
   providedIn: 'root'
 })
 export class MotorbikeService {
-  private apiServerUrl = '';
+  private apiServerUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 

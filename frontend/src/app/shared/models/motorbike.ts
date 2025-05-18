@@ -7,5 +7,8 @@ export interface Motorbike{
     imageUrl: string;
     price: number;
     description: string;
-    avliable: boolean;
+    available: boolean;
+    horsePower: number;
+    cc: number;
+    isNew: boolean;
 }

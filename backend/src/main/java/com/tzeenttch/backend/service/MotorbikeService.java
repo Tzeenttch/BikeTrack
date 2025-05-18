@@ -35,7 +35,7 @@ public class MotorbikeService {
         return motorbikeRepository.findMotorbikeById(id).orElseThrow(()-> new MotorbikeNotFoundException("Motorbike with id: " + id + " was not found"));
     }
 
-    public void delteMotorbike(Integer id){
+    public void deleteMotorbike(Integer id){
         motorbikeRepository.deleteMotorbikeById(id);
     }
 

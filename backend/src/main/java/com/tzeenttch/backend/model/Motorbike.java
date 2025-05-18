@@ -1,4 +1,5 @@
 package com.tzeenttch.backend.model;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -9,12 +10,12 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "motorbikes") //Mapea a la tabla correspondiente en la BD
-public class Motorbike implements Serializable{
+@Table(name = "motorbikes") // Mapea a la tabla correspondiente en la BD
+public class Motorbike implements Serializable {
 
-    //PK
+    // PK
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //Al ser autoincrementado se indica de esta forma
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Al ser autoincrementado se indica de esta forma
     @Column(nullable = false, updatable = false)
     private Integer id;
 
@@ -26,15 +27,23 @@ public class Motorbike implements Serializable{
     @Column(name = "image_url")
     private String imageUrl;
 
-    @Column(precision = 10, scale = 2) //Especifico el tamaño del numero entero y el decimal para no tener problemas con los valores monetarios.
+    @Column(precision = 10, scale = 2) // Especifico el tamaño del numero entero y el decimal para no tener problemas
+                                       // con los valores monetarios.
     private BigDecimal price;
+
+    @Column(name = "horsepower")
+    private Integer horsePower;
+    private Integer cc;
+
+    @Column(name = "is_new")
+    private boolean isNew;
 
     private String description;
     private Boolean available = true;
 
-    //Constructor
+    // Constructor
     public Motorbike(Integer id, String brand, String model, Integer year, Integer km, String imageUrl,
-            BigDecimal price, Integer stock, String description, Boolean available) {
+            BigDecimal price, Integer stock, String description, Boolean available, Integer cc, Integer horsePower, boolean isNew) {
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -44,13 +53,16 @@ public class Motorbike implements Serializable{
         this.price = price;
         this.description = description;
         this.available = available;
+        this.cc = cc;
+        this.horsePower = horsePower;
+        this.isNew = isNew;
     }
 
-    //Constructor vacio requerido por hibernate para poder realizar las peticiones
+    // Constructor vacio requerido por hibernate para poder realizar las peticiones
     public Motorbike() {
     }
 
-    //Getters y setters
+    // Getters y setters
     public Integer getId() {
         return id;
     }
@@ -122,4 +134,29 @@ public class Motorbike implements Serializable{
     public void setAvailable(Boolean available) {
         this.available = available;
     }
+
+    public Integer getCc() {
+        return cc;
+    }
+
+    public void setCc(Integer cc) {
+        this.cc = cc;
+    }
+
+    public Integer getHorsePower() {
+        return horsePower;
+    }
+
+    public void setHorsePower(Integer horsePower) {
+        this.horsePower = horsePower;
+    }
+
+    public boolean getIsNew() {
+        return isNew;
+    }
+
+    public void setNew(boolean isNew) {
+        this.isNew = isNew;
+    }
+
 }
