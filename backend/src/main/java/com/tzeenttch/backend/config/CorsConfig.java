@@ -1,6 +1,9 @@
 // package com.tzeenttch.backend.config;
 
 // import org.springframework.context.annotation.Bean;
+// import org.springframework.context.annotation.Configuration;
+// import org.springframework.web.servlet.config.annotation.CorsRegistry;
+// import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 // @Configuration
 // public class CorsConfig {
@@ -9,12 +12,10 @@
 //     public WebMvcConfigurer corsConfigurer() {
 //         return new WebMvcConfigurer() {
 //             @Override
-//             public void addCorsMappings(CorsRe registry) {
-//                 registry.addMapping("/api/**")  // las rutas que quieres permitir
-//                         .allowedOrigins("http://localhost:4200")  // URL de tu Angular
-//                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-//                         .allowedHeaders("*")
-//                         .allowCredentials(true);
+//             public void addCorsMappings(CorsRegistry registry) {
+//                 registry.addMapping("/**")  
+//                         .allowedOrigins("http://localhost:4200") //Direccion del frotned
+//                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS"); //MEtodos disponibles
 //             }
 //         };
 //     }

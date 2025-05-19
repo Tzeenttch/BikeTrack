@@ -12,6 +12,4 @@ public interface MotorbikeRepository extends JpaRepository<Motorbike, Integer>{
 
     Optional<Motorbike> findMotorbikeById(Integer id);
 
-    
-
 }

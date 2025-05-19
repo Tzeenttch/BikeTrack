@@ -15,7 +15,7 @@ public class Motorbike implements Serializable {
 
     // PK
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Al ser autoincrementado se indica de esta forma
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Al ser autoincrementado se indica de esta forman, la estrategia le indica a hibernate que para que no genere duplicados
     @Column(nullable = false, updatable = false)
     private Integer id;
 
