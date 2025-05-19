@@ -13,11 +13,15 @@
                 <span>rapido y facil con</span>
                 <h2 class="font-bold text-red-600">BikeTrack</h2>
             </h2>
-            <button class="cursor-pointer mt-2 px-4 py-2 bg-red-600 hover:bg-red-700 rounded-lg text-white transition">
+            <button (click)="openContactModal()"
+                class="cursor-pointer mt-2 px-4 py-2 bg-red-600 hover:bg-red-700 rounded-lg text-white transition">
                 Contactanos
             </button>
         </div>
     </div>
+
+
+
 
     <!--Texto entre imagen y productos-->
     <div @fadeSlideLeft class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 max-w-3xl mx-auto text-center">
@@ -158,6 +162,14 @@
                         <input type="number" id="cc" name="cc" ngModel
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
                             placeholder="998" required />
+                    </div>
+
+                    <div class="mb-5">
+                        <label for="type"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tipo</label>
+                        <input type="string" id="type" name="type" ngModel
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
+                            placeholder="Naked" required />
                     </div>
 
                     <!--Al usar ngClass para asignar una clase para que cambie de forma dinamica debo de gestionar todo lo que vaya a cambiar en el ngClass. 
@@ -379,6 +391,14 @@
                                                 [(ngModel)]="selectedMotorbike.cc" required />
                                         </div>
 
+                                        <div class="mb-5">
+                                            <label for="type"
+                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tipo</label>
+                                            <input type="string" id="type" name="type" ngModel="{{editMotorbike.type}}"
+                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
+                                                placeholder="Naked" required />
+                                        </div>
+
                                         <button type="submit" (click)="onUpdateMotorbike(editForm.value)"
                                             class="cursor-pointer text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Editar
                                             Motocicleta</button>
@@ -467,19 +487,24 @@
         <div
             class="flex flex-col items-center bg-gray-50 dark:bg-gray-800 py-12 px-6 rounded-lg shadow-lg mt-12 max-w-7xl mx-auto text-center pb-5">
             <h3 class="text-3xl font-bold text-white mb-6">
-                ¿Listo para empezar tu próxima aventura sobre dos ruedas?
+                ¿Listo para empezar tu próxima aventura?
             </h3>
             <p class="text-gray-700 dark:text-gray-300 mb-8 max-w-xl">
                 Contáctanos hoy mismo o visitanos en nuestra tienda fisica y descubre nuestras ofertas exclusivas y la
                 moto perfecta para ti.
             </p>
-            <button
+            <button (click)="openContactModal()"
                 class="bg-red-700 hover:bg-red-800 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-300 cursor-pointer">
                 Contactanos
             </button>
         </div>
 
-        <div class="flex flex-col items-center py-8 px-4">
+
+
+        <div class="flex flex-col items-center py-12 px-4">
+            <h3 class="text-3xl font-bold text-white mb-6">
+                Ven a visitarnos !Estamos Aqui!
+            </h3>
             <div
                 class="w-full max-w-7xl rounded-lg overflow-hidden shadow-lg border border-gray-300 dark:border-gray-700">
                 <iframe class="w-full"
@@ -490,6 +515,7 @@
 
     </section>
 
-
+    <!--Modal del formulario de contacto-->
+    <app-contact-modal [visible]="showModal" (closeModal)="showModal=false"></app-contact-modal>
 
 </body>

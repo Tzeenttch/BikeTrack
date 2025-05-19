@@ -40,10 +40,12 @@ public class Motorbike implements Serializable {
 
     private String description;
     private Boolean available = true;
+    private String type;
 
     // Constructor
     public Motorbike(Integer id, String brand, String model, Integer year, Integer km, String imageUrl,
-            BigDecimal price, Integer stock, String description, Boolean available, Integer cc, Integer horsePower, boolean isNew) {
+            BigDecimal price, Integer stock, String description, Boolean available, Integer cc, Integer horsePower,
+            boolean isNew, String type) {
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -56,6 +58,7 @@ public class Motorbike implements Serializable {
         this.cc = cc;
         this.horsePower = horsePower;
         this.isNew = isNew;
+        this.type = type;
     }
 
     // Constructor vacio requerido por hibernate para poder realizar las peticiones
@@ -157,6 +160,14 @@ public class Motorbike implements Serializable {
 
     public void setNew(boolean isNew) {
         this.isNew = isNew;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
 }

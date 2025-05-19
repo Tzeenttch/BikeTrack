@@ -11,4 +11,5 @@ export interface Motorbike{
     horsePower: number;
     cc: number;
     isNew: boolean;
+    type: string;
 }

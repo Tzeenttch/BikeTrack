@@ -2,7 +2,7 @@ package com.tzeenttch.backend.service;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.beans.factory.annotation.Autowired;
 // import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +14,7 @@ import com.tzeenttch.backend.repository.MotorbikeRepository;
 public class MotorbikeService {
     private final MotorbikeRepository motorbikeRepository;
 
-    @Autowired //Inyecta automaticamente las dependecias de la clase
+   // @Autowired //Inyecta automaticamente las dependecias de la clase
     public MotorbikeService(MotorbikeRepository motorbikeRepository) {
         this.motorbikeRepository = motorbikeRepository;
     }

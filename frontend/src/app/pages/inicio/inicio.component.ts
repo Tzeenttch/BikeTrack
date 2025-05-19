@@ -5,12 +5,13 @@ import { MotorbikeService } from './motorbike.service';
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { trigger, style, animate, transition, keyframes } from '@angular/animations';
+import { ContactModalComponent } from "../../shared/contact-modal/contact-modal.component";
 
 
 @Component({
   standalone: true,
   selector: 'app-inicio',
-  imports: [NgFor, NgIf, FormsModule, NgClass],
+  imports: [NgFor, NgIf, FormsModule, NgClass, ContactModalComponent],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css',
   animations: [
@@ -33,12 +34,20 @@ import { trigger, style, animate, transition, keyframes } from '@angular/animati
 
 export class InicioComponent implements OnInit {
 
+  //Variables para el manejo del CRUD de motos y modales relacionados
   public motorbikes: Motorbike[] = [];
   public editMotorbike: any = null;
-
   modalType: 'add' | 'edit' | 'delete' | null = null;
   selectedMotorbike: any = null;
   deleteMotorbike: any = null;
+
+  //Variables para modal de contacto
+  showModal = false;
+
+  openContactModal(){
+    this.showModal = true;
+  }
+  
 
   openModal(motorbike: Motorbike, type: 'edit' | 'delete') {
     this.modalType = type;
