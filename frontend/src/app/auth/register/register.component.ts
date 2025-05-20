@@ -1,7 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { AbstractControl, FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-register',
@@ -12,6 +13,11 @@ import { HttpClient } from '@angular/common/http';
 export class RegisterComponent {
   fb = inject(FormBuilder);
   http = inject(HttpClient);
+  showError: boolean = false;
+  errorMessage: string = '';
+
+  constructor(private authService: AuthService, private router: Router) { }
+
 
   form = this.fb.group({
     name: ['', Validators.required],
@@ -37,16 +43,21 @@ export class RegisterComponent {
       this.http.post('http://172.22.227.158:8080/auth/register', payload).subscribe({
         next: (response) => {
           console.log('Usuario creado:', response);
-          alert("Correcto") //Modificar en un futuro
-
+          this.router.navigate(['/login'], {state: {message: 'Usuario creado con exito. Por favor inicie sesion'}}).then(() => {
+            window.location.reload();
+          });
         },
-        error: (error) => {
+        error: (error) => { 
           console.error('Error al crear usuario:', error);
-          alert("Error") //Modificar en un futuro
+          this.errorMessage = error.error.error; //Esto accede al mensaje de error que da el servidor
+          this.showError = true;
+          this.form.reset();
         }
       });
     } else {
       console.log('Formulario inválido');
+      this.showError = true;
+      this.form.reset();
     }
   }
 }

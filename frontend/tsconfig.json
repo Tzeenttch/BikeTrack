@@ -12,6 +12,7 @@
     "skipLibCheck": true,
     "isolatedModules": true,
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true, //Añadido para poder utilizarla importacion por defecto para jwtDecode
     "experimentalDecorators": true,
     "moduleResolution": "bundler",
     "importHelpers": true,

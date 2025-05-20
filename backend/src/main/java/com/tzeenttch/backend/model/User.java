@@ -52,7 +52,7 @@ public class User {
 
     //Enumerado personalizado para el Rol
     public enum Role {
-        employee, customer
+        admin, user
     }
 
     // Getters and Setters

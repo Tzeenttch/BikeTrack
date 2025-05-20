@@ -6,6 +6,7 @@ import { NgClass, NgFor, NgIf } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { trigger, style, animate, transition, keyframes } from '@angular/animations';
 import { ContactModalComponent } from "../../shared/contact-modal/contact-modal.component";
+import { AuthService } from '../../auth/auth.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ import { ContactModalComponent } from "../../shared/contact-modal/contact-modal.
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css',
   animations: [
-      //Animacion para entrada desde abajo haci arriba
+    //Animacion para entrada desde abajo haci arriba
     trigger('fadeSlideUp', [
       transition(':enter', [
         style({ opacity: 0, transform: 'translateY(20px)' }),
@@ -23,7 +24,7 @@ import { ContactModalComponent } from "../../shared/contact-modal/contact-modal.
       ]),
     ]),
     //Animacion para entrada desde la izquierda
- trigger('fadeSlideLeft', [
+    trigger('fadeSlideLeft', [
       transition(':enter', [
         style({ opacity: 0, transform: 'translateX(-15px)' }),
         animate('800ms ease-out', style({ opacity: 1, transform: 'translateX(0)' }))
@@ -44,10 +45,10 @@ export class InicioComponent implements OnInit {
   //Variables para modal de contacto
   showModal = false;
 
-  openContactModal(){
+  openContactModal() {
     this.showModal = true;
   }
-  
+
 
   openModal(motorbike: Motorbike, type: 'edit' | 'delete') {
     this.modalType = type;
@@ -77,10 +78,14 @@ export class InicioComponent implements OnInit {
   //Cuando se inicializa el componente llamara a la funcion para obtener los datos.
   ngOnInit(): void {
     this.getMotorbikes();
+
+    //Prueba para obtener datos del usuario logeado
+    // const user = this.authService.getUserFromToken();
+    // console.log(user?.sub);
   }
 
   //Implementacion del servicio creado anteriormente para poder utilizar sus funciones aqui.
-  constructor(private motobikeService: MotorbikeService) { }
+  constructor(private motobikeService: MotorbikeService, private authService: AuthService) { }
 
   public getMotorbikes(): void {
     //Utilizamos subscribe para que el observable devuelva los datos
