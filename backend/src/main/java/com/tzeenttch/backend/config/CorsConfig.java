@@ -15,7 +15,7 @@ public class CorsConfig {
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")  
                         .allowedOrigins("http://localhost:4200", "http://172.22.227.158:4200") //Direccion del frotned
-                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS"); //MEtodos disponibles
+                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS"); //Metodos disponibles
             }
         };
     }

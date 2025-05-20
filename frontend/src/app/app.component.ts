@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { FooterComponent } from "./shared/footer/footer.component";
 import { HeaderComponent } from "./shared/header/header.component";
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from './auth/auth.service';
 
 
 @Component({
@@ -13,6 +14,15 @@ import { FormsModule } from '@angular/forms';
 templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'frontend';
+
+  constructor(private authService: AuthService){}
+
+  ngOnInit() {
+    if (this.authService.isLoggedIn()) {
+      this.authService.loadCurrentUser();
+    }
+  }
+
 }

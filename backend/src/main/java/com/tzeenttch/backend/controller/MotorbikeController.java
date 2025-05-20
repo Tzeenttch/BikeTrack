@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tzeenttch.backend.model.Motorbike;
+import com.tzeenttch.backend.model.SearchRequest;
 import com.tzeenttch.backend.service.MotorbikeService;
 
 import jakarta.transaction.Transactional;
@@ -20,7 +21,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@CrossOrigin(origins = "http://localhost:4200") //Necesario para no tener problemas con CORS
+@CrossOrigin(origins = "http://localhost:4200") // Necesario para no tener problemas con CORS
 @RestController
 @RequestMapping("/motorbike")
 public class MotorbikeController {
@@ -55,11 +56,17 @@ public class MotorbikeController {
         return new ResponseEntity<>(updateMotorbike, HttpStatus.OK);
     }
 
-    @Transactional //Necesario al ser un metodo personalizado que modifica la BD
+    @Transactional // Necesario al ser un metodo personalizado que modifica la BD
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteMotorbikeById(@PathVariable("id") Integer id) {
         motorbikeService.deleteMotorbike(id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping("/search")
+    public List<Motorbike> searchMotorbikes(@RequestBody SearchRequest request) {
+        return motorbikeService.findByBrandModelYear(
+                request.getBrand(), request.getModel(), request.getYear());
     }
 
 }

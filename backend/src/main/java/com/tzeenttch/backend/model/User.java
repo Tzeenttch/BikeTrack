@@ -32,17 +32,6 @@ public class User {
 
     private String token;
 
-
-    // Constructor
-    public User(int id, String name, String email, String password, Role role, String token) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.role = role;
-        this.token = token;
-    }
-
     
 
     public User() {

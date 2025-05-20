@@ -11,15 +11,20 @@ import { AuthService } from '../../auth/auth.service';
 
 export class HeaderComponent {
   userIsLogged: boolean = false;
-  
-  constructor(private authService : AuthService){}
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
-  this.userIsLogged = this.authService.isLoggedIn();
-}
+    this.userIsLogged = this.authService.isLoggedIn();
+  }
 
   //metodo de logout par ausar el metodo de authService
-  logout(){
+  logout() {
     this.authService.logout();
   }
+
+  isUserAdmin() {
+    return this.authService.isAdmin();
+  }
+
 }

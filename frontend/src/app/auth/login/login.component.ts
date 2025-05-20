@@ -31,8 +31,9 @@ export class LoginComponent {
       next: (response) => {
         console.log('Login exitoso', response);
 
-        //Almacenamos el token en localStorage para poder trabajar con los datos del usuario
+        //Almacenamos el token en localStorage y los datos del usuario.
         localStorage.setItem('token', response.token);
+        this.authService.loadCurrentUser()
         this.router.navigate(['/inicio']).then(() => {
           window.location.reload();
         });

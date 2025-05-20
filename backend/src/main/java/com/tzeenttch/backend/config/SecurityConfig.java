@@ -27,7 +27,7 @@ public class SecurityConfig {
     public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
         return http.getSharedObject(AuthenticationManagerBuilder.class)
                 .userDetailsService(userDetailsService)
-                .passwordEncoder(passwordEncoder()) // Muy importante
+                .passwordEncoder(passwordEncoder()) //Muy importante para hashear contraseña
                 .and()
                 .build();
     }
@@ -43,7 +43,7 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/**").permitAll()
+                .requestMatchers("/**").permitAll() //Rutas restringidas, en este caso ninguna
                 .anyRequest().authenticated()
             )
             .formLogin(form -> form.disable())

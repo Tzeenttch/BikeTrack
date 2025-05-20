@@ -17,7 +17,8 @@ export interface JwtPayload {
 })
 export class AuthService {
 
-  newUserCreate: boolean = false;
+  newUserCreate: boolean = false; //True en caso de que se llegue al login atraves delformulario de registro
+  currentUser: any = null; //Usuario actual logeado
 
   private apiServerUrl = environment.apiUrl;
 
@@ -30,7 +31,7 @@ export class AuthService {
   }
 
 
-  //Funcion para obtener datos del usuario con jwtDecode
+  //Funcion para obtener datos del usuario que contiene el token con jwtDecode
   getUserFromToken(): JwtPayload | null {
     const token = localStorage.getItem('token');
     if (!token) return null;
@@ -66,5 +67,31 @@ export class AuthService {
     window.location.reload();
   }
 
+
+  //Guarda el usuario en la varaible currentUser
+  loadCurrentUser() {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      this.currentUser = null;
+      return;
+    }
+    //Token añadido a la cabecera
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    this.http.get(`${this.apiServerUrl}/auth/me`, { headers }).subscribe({
+      next: (user) => {
+        this.currentUser = user;
+      },
+      error: () => {
+        this.currentUser = null;
+      }
+    });
+  }
+
+
+  isAdmin(): string {
+    return this.currentUser?.role;
+  }
 
 }

@@ -14,31 +14,34 @@ import com.tzeenttch.backend.repository.MotorbikeRepository;
 public class MotorbikeService {
     private final MotorbikeRepository motorbikeRepository;
 
-   // @Autowired //Inyecta automaticamente las dependecias de la clase
+    // @Autowired //Inyecta automaticamente las dependecias de la clase
     public MotorbikeService(MotorbikeRepository motorbikeRepository) {
         this.motorbikeRepository = motorbikeRepository;
     }
 
-    public Motorbike addMotorbike(Motorbike motorbike){
+    public Motorbike addMotorbike(Motorbike motorbike) {
         return motorbikeRepository.save(motorbike);
     }
 
-    public List<Motorbike> findAllMotorbikes(){
+    public List<Motorbike> findAllMotorbikes() {
         return motorbikeRepository.findAll();
     }
 
-    public Motorbike updateMotorbike(Motorbike motorbike){
+    public Motorbike updateMotorbike(Motorbike motorbike) {
         return motorbikeRepository.save(motorbike);
     }
 
-    public Motorbike findMotorbikeById(Integer id){
-        return motorbikeRepository.findMotorbikeById(id).orElseThrow(()-> new MotorbikeNotFoundException("Motorbike with id: " + id + " was not found"));
+    public Motorbike findMotorbikeById(Integer id) {
+        return motorbikeRepository.findMotorbikeById(id)
+                .orElseThrow(() -> new MotorbikeNotFoundException("Motorbike with id: " + id + " was not found"));
     }
 
-    public void deleteMotorbike(Integer id){
+    public void deleteMotorbike(Integer id) {
         motorbikeRepository.deleteMotorbikeById(id);
     }
 
-
+    public List<Motorbike> findByBrandModelYear(String brand, String model, int year) {
+        return motorbikeRepository.findByBrandAndModelAndYear(brand, model, year);
+    }
 
 }

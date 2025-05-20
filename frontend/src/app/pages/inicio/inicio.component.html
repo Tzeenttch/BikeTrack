@@ -20,9 +20,6 @@
         </div>
     </div>
 
-
-
-
     <!--Texto entre imagen y productos-->
     <div @fadeSlideLeft class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 max-w-3xl mx-auto text-center">
         <p class="text-gray-900 dark:text-gray-100 text-xl md:text-2xl font-semibold">
@@ -32,30 +29,12 @@
     </div>
 
     <!--Barra de busqueda-->
-    <div class="m-6">
-        <form class="w-full max-w-6xl mx-auto">
-            <div
-                class="flex items-center border border-gray-300 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-900 shadow-sm focus-within:ring-2 focus-within:ring-gray-700">
-                <input type="text" placeholder="Buscar..."
-                    class="flex-grow px-4 py-2 text-gray-900 dark:text-gray-100 bg-transparent focus:outline-none rounded-l-lg placeholder-gray-400 dark:placeholder-gray-500" />
-                <button type="submit"
-                    class="px-4 py-2 bg-red-700 text-white font-semibold rounded-r-lg hover:bg-red-800 transition cursor-pointer">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48">
-                        <g fill="none" stroke="#fff" stroke-linejoin="round" stroke-width="4">
-                            <path d="M21 38c9.389 0 17-7.611 17-17S30.389 4 21 4S4 11.611 4 21s7.611 17 17 17Z" />
-                            <path stroke-linecap="round"
-                                d="M26.657 14.343A7.98 7.98 0 0 0 21 12a7.98 7.98 0 0 0-5.657 2.343m17.879 18.879l8.485 8.485" />
-                        </g>
-                    </svg> </button>
-            </div>
-        </form>
-    </div>
-
-
+    <app-search-bar (searchResults)="onSearchResults($event)"></app-search-bar>
 
     <!--Section de las cards-->
     <section id="main-container" class="bg-gray-50 dark:bg-gray-900">
 
+        @if(isUserAdmin() === "admin"){
         <!--Boton añadir-->
         <div class="max-w-7xl mx-auto px-4 text-left py-4 bg-gray-50 dark:bg-gray-900">
             <div (click)="openModalAdd('add')"
@@ -67,6 +46,7 @@
                 </svg>
             </div>
         </div>
+        }
 
         <!-- Modal boton añadir-->
         <div *ngIf="modalType === 'add'" class="fixed inset-0 flex items-center justify-center z-50"
@@ -286,7 +266,9 @@
                             </svg>
                         </a>
 
+
                         <div class="flex gap-2">
+                            @if(isUserAdmin() === "admin"){
                             <!--Boton Editar-->
                             <div id="updateMotorbikeModal" (click)="openModal(moto, 'edit')"
                                 class="p-2 rounded-md bg-indigo-600 hover:bg-indigo-700 text-white transition-colors duration-300 cursor-pointer">
@@ -295,6 +277,7 @@
                                         d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75zM20.71 7.04a.996.996 0 0 0 0-1.41l-2.34-2.34a.996.996 0 0 0-1.41 0l-1.83 1.83l3.75 3.75z" />
                                 </svg>
                             </div>
+                            }
 
                             <!--Modal de boton editar-->
                             <div *ngIf="modalType === 'edit'"
@@ -420,7 +403,7 @@
                                 </div>
                             </div>
 
-
+                            @if(isUserAdmin() === "admin"){
                             <!--Boton Eliminar-->
                             <div id="deleteMotorbikeModal" (click)="openModal(moto, 'delete')"
                                 class="p-2 rounded-md bg-red-600 hover:bg-red-800 text-white transition-colors duration-300 cursor-pointer">
@@ -429,6 +412,7 @@
                                         d="M7 21q-.825 0-1.412-.587T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.587 1.413T17 21zM17 6H7v13h10zM9 17h2V8H9zm4 0h2V8h-2zM7 6v13z" />
                                 </svg>
                             </div>
+                            }
 
                             <!--Modal de boton eliminar-->
                             <div *ngIf="modalType === 'delete'"

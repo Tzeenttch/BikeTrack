@@ -7,16 +7,17 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { trigger, style, animate, transition, keyframes } from '@angular/animations';
 import { ContactModalComponent } from "../../shared/contact-modal/contact-modal.component";
 import { AuthService } from '../../auth/auth.service';
+import { SearchBarComponent } from "../../shared/search-bar/search-bar.component";
 
 
 @Component({
   standalone: true,
   selector: 'app-inicio',
-  imports: [NgFor, NgIf, FormsModule, NgClass, ContactModalComponent],
+  imports: [NgFor, NgIf, FormsModule, NgClass, ContactModalComponent, SearchBarComponent],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css',
   animations: [
-    //Animacion para entrada desde abajo haci arriba
+    //Animacion para entrada desde abajo hacia arriba
     trigger('fadeSlideUp', [
       transition(':enter', [
         style({ opacity: 0, transform: 'translateY(20px)' }),
@@ -42,13 +43,39 @@ export class InicioComponent implements OnInit {
   selectedMotorbike: any = null;
   deleteMotorbike: any = null;
 
+  //Cuando se inicializa el componente llamara a la funcion para obtener los datos de las motos y del usuario logeado.
+  ngOnInit(): void {
+    this.getMotorbikes();
+    this.getUserDisplay();
+  }
+
+  onSearchResults(results: any[]) {
+    console.log(results);
+    this.motorbikes = results;
+  }
+
+  
+
+  isUserAdmin() {
+    return this.authService.isAdmin();
+  }
+
+  getUserDisplay(): string {
+    if (!this.authService.currentUser) {
+      console.log("Usuario no encontrado")
+      return 'Usuario no autenticado';
+    }
+    console.log(`Nombre: ${this.authService.currentUser.name}, Email: ${this.authService.currentUser.email}`)
+
+    return `Nombre: ${this.authService.currentUser.name}, Email: ${this.authService.currentUser.email}`;
+  }
+
   //Variables para modal de contacto
   showModal = false;
 
   openContactModal() {
     this.showModal = true;
   }
-
 
   openModal(motorbike: Motorbike, type: 'edit' | 'delete') {
     this.modalType = type;
@@ -72,16 +99,6 @@ export class InicioComponent implements OnInit {
 
   closeModal() {
     this.modalType = null;
-  }
-
-
-  //Cuando se inicializa el componente llamara a la funcion para obtener los datos.
-  ngOnInit(): void {
-    this.getMotorbikes();
-
-    //Prueba para obtener datos del usuario logeado
-    // const user = this.authService.getUserFromToken();
-    // console.log(user?.sub);
   }
 
   //Implementacion del servicio creado anteriormente para poder utilizar sus funciones aqui.
