@@ -2,6 +2,13 @@
 
 <body class="bg-gray-50 dark:bg-gray-900">
 
+
+
+    <div class="max-w-2xl mx-auto px-4 text-left py-6 bg-gray-50 dark:bg-gray-900">
+        <app-success-message [successMessage]="successMessage"></app-success-message>
+        <app-error-message [errorMessage]="errorMessage"></app-error-message>
+    </div>
+
     <!--Imagen principal-->
     <div
         class="relative w-full max-w-7xl rounded-2xl overflow-hidden max-w-6xl mx-auto px-4 text-left py-4 bg-gray-50 dark:bg-gray-900">
@@ -33,7 +40,6 @@
 
     <!--Section de las cards-->
     <section id="main-container" class="bg-gray-50 dark:bg-gray-900">
-
         @if(isUserAdmin() === "admin"){
         <!--Boton añadir-->
         <div class="max-w-7xl mx-auto px-4 text-left py-4 bg-gray-50 dark:bg-gray-900">
@@ -47,6 +53,7 @@
             </div>
         </div>
         }
+
 
         <!-- Modal boton añadir-->
         <div *ngIf="modalType === 'add'" class="fixed inset-0 flex items-center justify-center z-50"
@@ -93,7 +100,7 @@
                         <label for="imageUrl"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Imagen
                             URL</label>
-                        <input type="url" id="imageUrl" name="imageUrl" ngModel
+                        <input type="url" id="imageUrl" name="imageUrl" value="aa" [(ngModel)]="imageUrl"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
                             placeholder="images/motorbikes/nombre_imagen" required />
                     </div>
@@ -184,10 +191,10 @@
         <div @fadeSlideUp class="max-w-7xl mx-auto p-4 grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-6">
 
             <div *ngFor="let moto of motorbikes; let i = index"
-                class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 ">
 
                 <a href="#"
-                    class="block max-w-sm mx-auto bg-gray-700 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 p-4">
+                    class="transition-transform duration-700 ease-in-out hover:scale-105 block max-w-sm mx-auto bg-gray-700 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 p-4">
                     <div class="rounded-xl overflow-hidden mb-4">
                         <img class="w-full h-64 object-contain bg-white" [src]="'assets/' + moto.imageUrl"
                             alt="{{ moto.model }}" />
@@ -467,7 +474,6 @@
 
     <!--Google Maps y ultimo CTA-->
     <section class="pb-10">
-
         <div
             class="flex flex-col items-center bg-gray-50 dark:bg-gray-800 py-12 px-6 rounded-lg shadow-lg mt-12 max-w-7xl mx-auto text-center pb-5">
             <h3 class="text-3xl font-bold text-white mb-6">
@@ -500,6 +506,7 @@
     </section>
 
     <!--Modal del formulario de contacto-->
-    <app-contact-modal [visible]="showModal" (closeModal)="showModal=false"></app-contact-modal>
-
+    <app-contact-modal [visible]="showModal" (formSubmitSuccess)="onSuccess($event)" (formSubmitError)="onError($event)"
+        (closeModal)="showModal = false">
+    </app-contact-modal>
 </body>

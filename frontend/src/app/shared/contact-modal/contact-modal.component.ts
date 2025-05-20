@@ -22,18 +22,19 @@ export class ContactModalComponent {
     message: ''
   };
 
-  showSuccess = false;
-  showError = false;
+  @Input() successMessage: string = '';
+  @Input() errorMessage: string = '';
 
+  @Output() formSubmitSuccess = new EventEmitter<string>();
+  @Output() formSubmitError = new EventEmitter<string>();
   constructor(private http: HttpClient) { }
 
 
   onSubmit() {
-
     this.http.post((`${this.apiServerUrl}/contact`), this.contact).subscribe({
       next: () => {
-        this.showSuccess = true;
-        setTimeout(() => this.showSuccess = false, 3000);
+        this.formSubmitSuccess.emit('Hemos recibido tu mensaje, en breves nos pondremos en contacto con usted');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         this.close();
         this.contact = {
           email: '',
@@ -44,8 +45,8 @@ export class ContactModalComponent {
       },
       error: () => {
         console.log("Error al enviar");
-        this.showError = true;
-        setTimeout(() => this.showError = false, 3000);
+        this.formSubmitError.emit('ERROR: No se ha podido enviar el mensaje');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     });
   }

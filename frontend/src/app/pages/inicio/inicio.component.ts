@@ -8,12 +8,14 @@ import { trigger, style, animate, transition, keyframes } from '@angular/animati
 import { ContactModalComponent } from "../../shared/contact-modal/contact-modal.component";
 import { AuthService } from '../../auth/auth.service';
 import { SearchBarComponent } from "../../shared/search-bar/search-bar.component";
+import { SuccessMessageComponent } from "../../shared/success-message/success-message.component";
+import { ErrorMessageComponent } from "../../shared/error-message/error-message.component";
 
 
 @Component({
   standalone: true,
   selector: 'app-inicio',
-  imports: [NgFor, NgIf, FormsModule, NgClass, ContactModalComponent, SearchBarComponent],
+  imports: [NgFor, NgIf, FormsModule, NgClass, ContactModalComponent, SearchBarComponent, SuccessMessageComponent, ErrorMessageComponent],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css',
   animations: [
@@ -42,6 +44,10 @@ export class InicioComponent implements OnInit {
   modalType: 'add' | 'edit' | 'delete' | null = null;
   selectedMotorbike: any = null;
   deleteMotorbike: any = null;
+  imageUrl: string = 'images/motorbikes/';
+  successMessage: string = '';
+  errorMessage: string = '';
+
 
   //Cuando se inicializa el componente llamara a la funcion para obtener los datos de las motos y del usuario logeado.
   ngOnInit(): void {
@@ -54,7 +60,6 @@ export class InicioComponent implements OnInit {
     this.motorbikes = results;
   }
 
-  
 
   isUserAdmin() {
     return this.authService.isAdmin();
@@ -112,6 +117,7 @@ export class InicioComponent implements OnInit {
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
+        console.log("No hay motos")
       }
     )
   }
@@ -133,12 +139,20 @@ export class InicioComponent implements OnInit {
   public onAddMotorbike(addForm: NgForm): void {
     document.getElementById('add-form-close-button')?.click();
     this.motobikeService.addMotorbike(addForm.value).subscribe(
-      (respone: Motorbike) => {
-        console.log(respone);
+      (response: Motorbike) => {
+        this.successMessage = "Moto añadida exitosamente"
+        setTimeout(() => {
+          this.successMessage = '';
+        }, 3000)
         this.getMotorbikes();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       },
       (error: HttpErrorResponse) => {
-        alert(error.message);
+        this.errorMessage = "ERROR: No se ha podido añadir la moto"
+        setTimeout(() => {
+          this.errorMessage = '';
+        }, 3000)
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     )
   }
@@ -146,12 +160,20 @@ export class InicioComponent implements OnInit {
   public onUpdateMotorbike(motorbike: Motorbike): void {
     document.getElementById('update-form-close-button')?.click();
     this.motobikeService.updateMotorbike(motorbike).subscribe(
-      (respone: Motorbike) => {
-        console.log(respone);
+      (response: Motorbike) => {
+        this.successMessage = "Moto editada exitosamente"
+        setTimeout(() => {
+          this.successMessage = '';
+        }, 3000)
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         this.getMotorbikes();
       },
       (error: HttpErrorResponse) => {
-        alert(error.message);
+        this.errorMessage = "ERROR: No se ha podido actualizar la moto"
+        setTimeout(() => {
+          this.errorMessage = '';
+        }, 3000)
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     )
   }
@@ -159,14 +181,38 @@ export class InicioComponent implements OnInit {
   public onDeleteMotorbike(motorbikeId: number): void {
     document.getElementById('delete-close-button')?.click();
     this.motobikeService.deleteMotorbike(motorbikeId).subscribe(
-      (respone: void) => {
-        console.log(respone);
+      (response: void) => {
+        this.successMessage = "Moto borrada exitosamente"
+        setTimeout(() => {
+          this.successMessage = '';
+        }, 3000)
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         this.getMotorbikes();
       },
       (error: HttpErrorResponse) => {
-        alert(error.message);
+        this.errorMessage = "ERROR: No se ha podido eliminar la moto"
+        setTimeout(() => {
+          this.errorMessage = '';
+        }, 3000)
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     )
+  }
+
+
+  onSuccess(msg: string) {
+    this.successMessage = msg;
+    this.errorMessage = '';
+    this.showModal = false;
+    setTimeout(() => this.successMessage = '', 5000);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  onError(msg: string) {
+    this.errorMessage = msg;
+    this.successMessage = '';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(() => this.errorMessage = '', 5000);
   }
 
 

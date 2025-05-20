@@ -18,7 +18,7 @@ export class HeaderComponent {
     this.userIsLogged = this.authService.isLoggedIn();
   }
 
-  //metodo de logout par ausar el metodo de authService
+  //metodo de logout para usar el metodo de authService
   logout() {
     this.authService.logout();
   }

@@ -65,8 +65,7 @@ public class MotorbikeController {
 
     @PostMapping("/search")
     public List<Motorbike> searchMotorbikes(@RequestBody SearchRequest request) {
-        return motorbikeService.findByBrandModelYear(
-                request.getBrand(), request.getModel(), request.getYear());
+        return motorbikeService.findByBrandModelYear(request.getBrand(), request.getModel(), request.getYear());
     }
 
 }

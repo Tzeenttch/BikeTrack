@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { ErrorMessageComponent } from "../../shared/error-message/error-message.component";
+import { SuccessMessageComponent } from "../../shared/success-message/success-message.component";
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterModule, ReactiveFormsModule, FormsModule],
+  imports: [RouterModule, ReactiveFormsModule, FormsModule, ErrorMessageComponent, SuccessMessageComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -15,13 +17,17 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
   showError: boolean = false;
-  successMessage: string | null = null;
+  successMessage: string = '';
+  errorMessage: string = '';
 
 
   constructor(private authService: AuthService, private router: Router) {
     //Uso NavigationExtras para recibir el mensaje desde register.component en caso de que se llegue al login al haber creado un usuario nuevo
     const nav = this.router.getCurrentNavigation();
     this.successMessage = nav?.extras.state?.['message'] || null;
+    setTimeout(() => {
+      this.successMessage = '';
+    }, 3000)
   }
 
 
@@ -39,9 +45,12 @@ export class LoginComponent {
         });
       },
       error: (error) => {
-        this.showError = true;
+        this.errorMessage = 'ERROR: La contraseño o el email no son correctos'
         form.reset();
         console.error('Error en login', error);
+        setTimeout(() => {
+          this.errorMessage = '';
+        }, 3000)
         const email = document.getElementById('email');
         const password = document.getElementById('password');
 
