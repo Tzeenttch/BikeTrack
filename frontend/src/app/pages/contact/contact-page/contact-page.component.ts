@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ContactModalComponent } from "../../../shared/contact-modal/contact-modal.component";
 import { environment } from '../../../../environment/environment';
@@ -32,6 +32,10 @@ export class ContactPageComponent {
   @Output() closeModal = new EventEmitter<void>();
   close() {
     this.closeModal.emit();
+  }
+
+  ngOnInit(): void {
+    window.scrollTo({ top: 0, behavior: 'auto' });
   }
 
 }

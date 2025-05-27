@@ -5,12 +5,13 @@ import { HeaderComponent } from "./shared/header/header.component";
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './auth/auth.service';
+import { CookieBannerComponent } from "./shared/cookie-banner/cookie-banner.component";
 
 
 @Component({
   selector: 'app-root',
   standalone: true, 
-  imports: [RouterOutlet, RouterModule, FooterComponent, HeaderComponent, HttpClientModule, FormsModule],
+  imports: [RouterOutlet, RouterModule, FooterComponent, HeaderComponent, HttpClientModule, FormsModule, CookieBannerComponent],
 templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

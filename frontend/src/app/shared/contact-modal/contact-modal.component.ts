@@ -43,8 +43,8 @@ export class ContactModalComponent {
           message: ''
         };
       },
-      error: () => {
-        console.log("Error al enviar");
+      error: (error) => {
+        console.log("Error al enviar", error);
         this.formSubmitError.emit('ERROR: No se ha podido enviar el mensaje');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
