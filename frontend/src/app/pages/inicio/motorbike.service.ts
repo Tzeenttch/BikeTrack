@@ -30,4 +30,8 @@ export class MotorbikeService {
     return this.http.delete<void>(`${this.apiServerUrl}/motorbike/delete/${motorbikeId}`);
   }
 
+  getMotorbikeById(id: number): Observable<Motorbike> {
+    return this.http.get<Motorbike>(`${this.apiServerUrl}/motorbike/find/${id}`);
+  }
+
 }

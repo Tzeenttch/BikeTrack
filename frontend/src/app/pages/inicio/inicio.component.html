@@ -263,8 +263,8 @@
                     <!-- Botones de la card-->
                     <div class="flex justify-between items-center mt-4">
                         <!-- Botón Mas informacion -->
-                        <a href="#"
-                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none dark:bg-red-700 dark:hover:bg-red-800 transition-colors duration-300">
+                        <a [routerLink]="['/motorbike', moto.id]"
+                            class="cursor-pointer inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none dark:bg-red-700 dark:hover:bg-red-800 transition-colors duration-300">
                             Más información
                             <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">

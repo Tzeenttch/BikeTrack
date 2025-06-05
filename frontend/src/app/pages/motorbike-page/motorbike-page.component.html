@@ -1,0 +1,7 @@
+<div class="text-black">
+    <h1 class="text-3xl font-bold text-red-800 mb-4">{{ motorbike.model }}</h1>
+    <p><strong>Marca:</strong> {{ motorbike.brand }}</p>
+    <p><strong>Año:</strong> {{ motorbike.year }}</p>
+    <p><strong>Precio:</strong> ${{ motorbike.price }}</p>
+    <img [src]="'assets/' + motorbike.imageUrl" alt="Moto" class="rounded-lg mt-4 max-w-md">
+</div>

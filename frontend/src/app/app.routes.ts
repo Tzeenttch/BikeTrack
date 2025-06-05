@@ -6,6 +6,7 @@ import { ContactPageComponent } from './pages/contact/contact-page/contact-page.
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { TermsAndConditionsComponent } from './pages/terms-and-conditions/terms-and-conditions.component';
 import { AboutComponent } from './pages/about/about.component';
+import { MotorbikePageComponent } from './pages/motorbike-page/motorbike-page.component';
 
 export const routes: Routes = [
     {path:'', component:InicioComponent, title:'BikeTrack - Inicio'},
@@ -15,6 +16,7 @@ export const routes: Routes = [
     {path:'contact-page', component:ContactPageComponent, title:'BikeTrack - Contacto'},
     {path:'privacy-policy', component:PrivacyPolicyComponent, title:'BikeTrack - Politicas de privacidad'},
     {path:'terms-and-conditions', component:TermsAndConditionsComponent, title:'BikeTrack - Terminos y condiciones'},
-    {path:'about', component:AboutComponent, title:'BikeTrack - Sobre nosotros'}
+    {path:'about', component:AboutComponent, title:'BikeTrack - Sobre nosotros'},
+    {path:'motorbike/:id', component:MotorbikePageComponent, title:'BikeTrack - Moto'}
 ];
 

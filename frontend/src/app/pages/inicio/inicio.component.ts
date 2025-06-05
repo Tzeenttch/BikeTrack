@@ -10,12 +10,13 @@ import { AuthService } from '../../auth/auth.service';
 import { SearchBarComponent } from "../../shared/search-bar/search-bar.component";
 import { SuccessMessageComponent } from "../../shared/success-message/success-message.component";
 import { ErrorMessageComponent } from "../../shared/error-message/error-message.component";
+import { RouterModule } from '@angular/router';
 
 
 @Component({
   standalone: true,
   selector: 'app-inicio',
-  imports: [NgFor, NgIf, FormsModule, NgClass, ContactModalComponent, SearchBarComponent, SuccessMessageComponent, ErrorMessageComponent],
+  imports: [RouterModule, NgFor, NgIf, FormsModule, NgClass, ContactModalComponent, SearchBarComponent, SuccessMessageComponent, ErrorMessageComponent],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css',
   animations: [
