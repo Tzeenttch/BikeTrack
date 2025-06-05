@@ -1,7 +1,132 @@
-<div class="text-black">
-    <h1 class="text-3xl font-bold text-red-800 mb-4">{{ motorbike.model }}</h1>
-    <p><strong>Marca:</strong> {{ motorbike.brand }}</p>
-    <p><strong>Año:</strong> {{ motorbike.year }}</p>
-    <p><strong>Precio:</strong> ${{ motorbike.price }}</p>
-    <img [src]="'assets/' + motorbike.imageUrl" alt="Moto" class="rounded-lg mt-4 max-w-md">
-</div>
+<body class="bg-gray-900">
+    <div class="text-white p-6 rounded-xl shadow-lg max-w-6xl mx-auto">
+
+        <div class="bg-gray-700 rounded-xl p-6 flex flex-col md:flex-row gap-6">
+
+            <div class="w-full md:w-2/3  flex justify-center items-center">
+                <img [src]="'assets/' + motorbike.imageUrl"
+                    class="w-full rounded-lg h-full object-cover  max-h-[500px]" />
+            </div>
+
+            <!-- Ficha técnica -->
+            <div class="bg-gray-800 text-white rounded-xl p-6 shadow-lg w-full md:w-[400px]">
+                <h2 class="text-xl font-bold text-center text-white mb-4 border-b border-red-800 pb-2">
+                    FICHA TÉCNICA
+                </h2>
+
+                <div class="space-y-3 text-sm">
+                    <div class="flex justify-between items-center">
+                        <span class="flex items-center gap-2 text-gray-300">
+                            Marca:
+                        </span>
+                        <span class="font-semibold text-white">{{motorbike.brand}}</span>
+                    </div>
+
+                    <div class="flex justify-between items-center">
+                        <span class="flex items-center gap-2 text-gray-300">
+                            Modelo:
+                        </span>
+                        <span class="font-semibold text-white">{{motorbike.model}}</span>
+                    </div>
+
+                    <div class="flex justify-between items-center">
+                        <span class="flex items-center gap-2 text-gray-300">
+                            Año:
+                        </span>
+                        <span class="font-semibold text-white">{{motorbike.year}}</span>
+                    </div>
+
+                    <div class="flex justify-between items-center">
+                        <span class="flex items-center gap-2 text-gray-300">
+                            Kilómetros:
+                        </span>
+                        <span class="font-semibold text-white">{{motorbike.km}} km</span>
+                    </div>
+
+                    <div class="flex justify-between items-center">
+                        <span class="flex items-center gap-2 text-gray-300">
+                            Tipo:
+                        </span>
+                        <span class="font-semibold text-white">{{motorbike.type}}</span>
+                    </div>
+
+                    <div class="flex justify-between items-center">
+                        <span class="flex items-center gap-2 text-gray-300">
+                            Carnet:
+                        </span>
+                        <span class="font-semibold text-white">{{getLicenseType(motorbike)}}</span>
+                    </div>
+
+                    <div class="flex justify-between items-center">
+                        <span class="flex items-center gap-2 text-gray-300">
+                            Cilindrada:
+                        </span>
+                        <span class="font-semibold text-white">{{motorbike.cc}}</span>
+                    </div>
+
+                    <div class="flex justify-between items-center">
+                        <span class="flex items-center gap-2 text-gray-300">
+                            Potencia:
+                        </span>
+                        <span class="font-semibold text-white">{{motorbike.horsePower}}</span>
+                    </div>
+
+                    <div class="flex justify-between items-center">
+                        <span class="flex items-center gap-2 text-gray-300">
+                            Disponibilidad:
+                        </span>
+                        <span class="font-semibold text-white">Disponible</span>
+                    </div>
+
+                    <div class="flex justify-between items-center">
+                        <span class="flex items-center gap-2 text-gray-300">
+                            Precio:
+                        </span>
+                        <span class="font-semibold text-white">{{motorbike.price}} €</span>
+                    </div>
+
+                    <!-- Reservar ahora-->
+                    <div class="flex justify-center items-center">
+                        <button
+                            class="cursor-pointer mt-6 bg-red-800 hover:bg-red-700 text-white font-semibold py-3 px-4 rounded-xl transition duration-300 flex items-center justify-center gap-2">
+                            Reservar ahora
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Descripción -->
+        <div class="mt-8 bg-gray-700 rounded-xl p-6">
+            <h3 class="text-xl font-semibold text-red-800 mb-2">Descripción</h3>
+            <p class="text-gray-200 text-sm leading-relaxed">
+                {{motorbike.description}}
+            </p>
+
+        <ul class="pt-6">
+
+        <li class="pb-2">ACEPTAMOS SU MOTO COMO PARTE DE PAGO.</li>
+
+        <li class="pb-2">FINANCIACIÓN INSTANTÁNEA SIN ENTRADA.</li>
+
+        <li>ENVÍO GRATUITO A TODA ESPAÑA GARANTIZADO*.</li>
+
+        *Excepto islas.
+        </ul>
+        </div>
+
+        <div>
+            <h2
+                class="text-white text-xl md:text-2xl font-semibold leading-relaxed max-w-xl mx-auto text-center mb-6 pt-12">
+                ¿Necesitas mas informacion?</h2>
+            <p class="text-gray-300 text-center mb-6 max-w-2xl mx-auto italic">
+                "¡No dudes en preguntarnos! !Estamos encantados de ayudarte!"
+            </p>
+            <app-contact-form></app-contact-form>
+        </div>
+
+    </div>
+
+
+</body>

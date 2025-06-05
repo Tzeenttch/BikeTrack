@@ -1,8 +1,4 @@
-<!--Añadir imagen encabezado-->
-
 <body class="bg-gray-50 dark:bg-gray-900">
-
-
 
     <div class="max-w-2xl mx-auto px-4 text-left py-6 bg-gray-50 dark:bg-gray-900">
         <app-success-message [successMessage]="successMessage"></app-success-message>
@@ -190,7 +186,9 @@
         <!--Div de la card-->
         <div @fadeSlideUp class="max-w-7xl mx-auto p-4 grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-6">
 
-            <div *ngFor="let moto of motorbikes; let i = index"
+            @for (moto of motorbikes; track $index) {
+            @if (moto.isNew === true) {
+            <div
                 class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 ">
 
                 <a href="#"
@@ -389,6 +387,13 @@
                                                 placeholder="Naked" required />
                                         </div>
 
+                                        <div class="mb-5">
+                                            <label for="isNew"
+                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">¿Nueva?</label>
+                                            <input type="checkbox" id="isNew" name="isNew"
+                                                [(ngModel)]="selectedMotorbike.isNew" />
+                                        </div>
+
                                         <button type="submit" (click)="onUpdateMotorbike(editForm.value)"
                                             class="cursor-pointer text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Editar
                                             Motocicleta</button>
@@ -467,8 +472,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
 
+            </div>
+            }
+            }
         </div>
     </section>
 
