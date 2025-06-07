@@ -87,10 +87,10 @@
 
                     <!-- Reservar ahora-->
                     <div class="flex justify-center items-center">
-                        <button
+                        <a [routerLink]="['/reserve', motorbike.id]"
                             class="cursor-pointer mt-6 bg-red-800 hover:bg-red-700 text-white font-semibold py-3 px-4 rounded-xl transition duration-300 flex items-center justify-center gap-2">
                             Reservar ahora
-                        </button>
+                        </a>
                     </div>
 
                 </div>
@@ -104,16 +104,16 @@
                 {{motorbike.description}}
             </p>
 
-        <ul class="pt-6">
+            <ul class="pt-6">
 
-        <li class="pb-2">ACEPTAMOS SU MOTO COMO PARTE DE PAGO.</li>
+                <li class="pb-2">ACEPTAMOS SU MOTO COMO PARTE DE PAGO.</li>
 
-        <li class="pb-2">FINANCIACIÓN INSTANTÁNEA SIN ENTRADA.</li>
+                <li class="pb-2">FINANCIACIÓN INSTANTÁNEA SIN ENTRADA.</li>
 
-        <li>ENVÍO GRATUITO A TODA ESPAÑA GARANTIZADO*.</li>
+                <li>ENVÍO GRATUITO A TODA ESPAÑA GARANTIZADO*.</li>
 
-        *Excepto islas.
-        </ul>
+                *Excepto islas.
+            </ul>
         </div>
 
         <div>
@@ -127,6 +127,4 @@
         </div>
 
     </div>
-
-
 </body>

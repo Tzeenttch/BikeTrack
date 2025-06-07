@@ -8,6 +8,7 @@ import { TermsAndConditionsComponent } from './pages/terms-and-conditions/terms-
 import { AboutComponent } from './pages/about/about.component';
 import { MotorbikePageComponent } from './pages/motorbike-page/motorbike-page.component';
 import { UsedBikesComponent } from './pages/used-bikes/used-bikes.component';
+import { ReserveBikeComponent } from './pages/reserve-bike/reserve-bike.component';
 
 export const routes: Routes = [
     {path:'', component:InicioComponent, title:'BikeTrack - Inicio'},
@@ -19,6 +20,7 @@ export const routes: Routes = [
     {path:'terms-and-conditions', component:TermsAndConditionsComponent, title:'BikeTrack - Terminos y condiciones'},
     {path:'about', component:AboutComponent, title:'BikeTrack - Sobre nosotros'},
     {path:'motorbike/:id', component:MotorbikePageComponent, title:'BikeTrack - Moto'},
-    {path:'usedBikes', component:UsedBikesComponent, title:'BikeTrack - Motos de ocasion'}
+    {path:'usedBikes', component:UsedBikesComponent, title:'BikeTrack - Motos de ocasion'},
+    {path:'reserve/:id', component:ReserveBikeComponent, title:'BikeTrack - Reservar motocicleta'},
 ];
 

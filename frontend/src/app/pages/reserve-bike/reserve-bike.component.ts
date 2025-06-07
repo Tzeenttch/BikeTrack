@@ -1,19 +1,24 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Motorbike } from '../../shared/models/motorbike';
-import { ActivatedRoute, RouterModule } from '@angular/router';
 import { MotorbikeService } from '../inicio/motorbike.service';
-import { ContactFormComponent } from "../../shared/contact-form/contact-form.component";
 
 @Component({
-  selector: 'app-motorbike-page',
-  imports: [RouterModule, ContactFormComponent],
-  templateUrl: './motorbike-page.component.html',
-  styleUrl: './motorbike-page.component.css'
+  selector: 'app-reserve-bike',
+  imports: [FormsModule],
+  templateUrl: './reserve-bike.component.html',
+  styleUrl: './reserve-bike.component.css'
 })
-export class MotorbikePageComponent {
+export class ReserveBikeComponent {
 
   motorbike!: Motorbike;
-  licenseType!: String;
+  formData = {
+    name: '',
+    email: '',
+    address: '',
+    number: ''
+  };
 
   constructor(private route: ActivatedRoute, private motorbikeService: MotorbikeService) { }
 
@@ -33,17 +38,10 @@ export class MotorbikePageComponent {
 
   }
 
-    getLicenseType(moto: Motorbike): string {
-    if (moto.cc <= 49) {
-      return 'AM';
-    } else if (moto.cc <= 125) {
-      return 'A1';
+  onSubmit() {
+    if (this.formData.name && this.formData.email && this.formData.address && this.formData.number) {
+      console.log('Formulario válido:', this.formData);
     }
-    else if (moto.cc > 125 && moto.horsePower <= 95) {
-      return 'A2, A';
-    } else {
-      return 'A';
-    }
-  }
 
+  }
 }

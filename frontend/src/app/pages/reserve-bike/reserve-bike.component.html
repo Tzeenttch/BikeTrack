@@ -1,0 +1,102 @@
+<body class="bg-gray-900">
+
+    <!--Datos de la moto a comprar-->
+
+    <h2 class="text-white text-xl md:text-2xl font-semibold leading-relaxed max-w-xl mx-auto text-center mb-6 pt-12">
+        Reservar Motocicleta 
+    </h2>
+    <div class="text-white p-6 rounded-xl shadow-lg max-w-6xl mx-auto">
+
+        <div class="bg-gray-700 rounded-xl p-6 flex flex-col md:flex-row gap-6 items-stretch">
+
+
+            <div class="w-full md:w-2/3 flex-shrink-0">
+                <img [src]="'assets/' + motorbike.imageUrl"
+                    class="w-full h-full object-cover rounded-lg max-h-[500px]" />
+                    <h2 class="text-xl font-bold text-center text-white mb-4 border-b border-red-800 pb-2 pt-6">{{ motorbike.brand }} {{ motorbike.model }}</h2>
+                    <h3 class="text-xl font-bold text-center text-white mb-4 border-b border-red-800 pb-2">{{motorbike.description}}</h3>
+            </div>
+
+            
+
+            <!-- Datos de reserva -->
+            <div class="bg-gray-800 text-white rounded-xl p-6 shadow-lg w-full md:w-[400px] flex flex-col">
+                <h3 class="text-xl font-bold text-center text-white mb-4 border-b border-red-800 pb-2">
+                    CONFIRMA TU RESERVA
+                </h3>
+
+                <div class="space-y-3 text-sm">
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-300">Marca:</span>
+                        <span class="font-semibold text-white">{{ motorbike.brand }}</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-300">Modelo:</span>
+                        <span class="font-semibold text-white">{{ motorbike.model }}</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-300">Precio:</span>
+                        <span class="font-semibold text-white">{{ motorbike.price }} €</span>
+                    </div>
+
+                    <!--Formulario con los datos del cliente-->
+                    <form (ngSubmit)="onSubmit()" #contactForm="ngForm"
+                        class="space-y-6 bg-gray-700 p-6 rounded-xl shadow-lg max-w-xl mx-auto text-white">
+                        <h2 class="text-2xl font-semibold mb-4">Introduce tus datos</h2>
+
+                        <div>
+                            <label for="nombre" class="block text-sm font-medium mb-1">Nombre completo</label>
+                            <input type="text" id="nombre" name="nombre" [(ngModel)]="formData.name" required
+                                class="w-full px-4 py-2 rounded bg-gray-800 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-white-700 rounded-lg" />
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-sm font-medium mb-1">Correo electrónico</label>
+                            <input type="email" id="email" name="email" [(ngModel)]="formData.email" required
+                                class="w-full px-4 py-2 rounded bg-gray-800 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-white-700 rounded-lg" />
+                        </div>
+
+                        <div>
+                            <label for="direccion" class="block text-sm font-medium mb-1">Dirección</label>
+                            <input type="text" id="direccion" name="direccion" [(ngModel)]="formData.address" required
+                                class="w-full px-4 py-2 rounded bg-gray-800 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-white-700 rounded-lg" />
+                        </div>
+
+                        <div>
+                            <label for="telefono" class="block text-sm font-medium mb-1">Teléfono</label>
+                            <input type="text" id="telefono" name="telefono" [(ngModel)]="formData.number" required
+                                class="w-full px-4 py-2 rounded bg-gray-800 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-white-700 rounded-lg" />
+                        </div>
+                        <div class="flex justify-center">
+                            <button type="submit"
+                                class="bg-red-700 hover:bg-red-800 text-white font-semibold py-2 px-6 rounded-xl transition duration-300 cursor-pointer">
+                                Reservar y continuar con el pago
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <div class="mt-8 bg-gray-700 rounded-xl p-6">
+            <h3 class="text-xl font-semibold text-red-800 mb-2">Aviso Legal</h3>
+            <p class="text-gray-200 text-sm leading-relaxed">
+                Los precios indicados en nuestra plataforma incluyen todos los impuestos aplicables y los gastos de
+                matriculación correspondientes para la motocicleta adquirida. La entrega se realizará con la
+                documentación
+                legal completa, garantizando que el vehículo esté listo para su circulación conforme a la normativa
+                vigente.
+                Los costos de envío, cuando apliquen, serán informados oportunamente antes de la confirmación de la
+                compra.
+                Nos reservamos el derecho de modificar precios, disponibilidad y condiciones sin previo aviso, si bien
+                siempre procuramos mantener la información actualizada. Es responsabilidad del comprador verificar que
+                el
+                uso y circulación del vehículo cumplan con las regulaciones locales. Para cualquier consulta adicional,
+                nuestro equipo de atención al cliente está a su disposición para brindar asistencia.
+            </p>
+        </div>
+
+    </div>
+
+
+</body>
