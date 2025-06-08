@@ -11,6 +11,7 @@ import { UsedBikesComponent } from './pages/used-bikes/used-bikes.component';
 import { ReserveBikeComponent } from './pages/reserve-bike/reserve-bike.component';
 import { SuccesPaymentComponent } from './pages/succes-payment/succes-payment.component';
 import { CancelPaymentComponent } from './pages/cancel-payment/cancel-payment.component';
+import { UserPageComponent } from './pages/user-page/user-page.component';
 
 export const routes: Routes = [
     {path:'', component:InicioComponent, title:'BikeTrack - Inicio'},
@@ -25,6 +26,7 @@ export const routes: Routes = [
     {path:'usedBikes', component:UsedBikesComponent, title:'BikeTrack - Motos de ocasion'},
     {path:'reserve/:id', component:ReserveBikeComponent, title:'BikeTrack - Reservar motocicleta'},
     {path:'succes-payment', component:SuccesPaymentComponent, title:'BikeTrack - Pago completado'},
-    {path:'cancel-payment', component:CancelPaymentComponent, title:'BikeTrack - Pago cancelado'}
+    {path:'cancel-payment', component:CancelPaymentComponent, title:'BikeTrack - Pago cancelado'},
+    {path:'user-page', component:UserPageComponent, title:'BikeTrack - Perfil de usuario'},
 ];
 
