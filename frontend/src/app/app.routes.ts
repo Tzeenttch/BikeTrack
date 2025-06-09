@@ -12,6 +12,7 @@ import { ReserveBikeComponent } from './pages/reserve-bike/reserve-bike.componen
 import { SuccesPaymentComponent } from './pages/succes-payment/succes-payment.component';
 import { CancelPaymentComponent } from './pages/cancel-payment/cancel-payment.component';
 import { UserPageComponent } from './pages/user-page/user-page.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 export const routes: Routes = [
     {path:'', component:InicioComponent, title:'BikeTrack - Inicio'},
@@ -28,5 +29,6 @@ export const routes: Routes = [
     {path:'succes-payment', component:SuccesPaymentComponent, title:'BikeTrack - Pago completado'},
     {path:'cancel-payment', component:CancelPaymentComponent, title:'BikeTrack - Pago cancelado'},
     {path:'user-page', component:UserPageComponent, title:'BikeTrack - Perfil de usuario'},
+    {path:'dashboard', component:DashboardComponent, title:'BikeTrack - Estadisticas'}
 ];
 

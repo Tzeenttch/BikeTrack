@@ -1,0 +1,57 @@
+<body class="bg-gray-900 min-h-screen py-12 px-4">
+
+    <div class="max-w-7xl mx-auto text-white space-y-12">
+
+        <h1 class="text-4xl font-bold text-red-800 text-center mb-8">Panel de Estadísticas</h1>
+        <p class="text-center text-gray-300 mb-12">
+            Aquí puedes visualizar un resumen completo de las ventas y el comportamiento de las marcas dentro de nuestra
+            tienda.
+        </p>
+
+        <!--Ventas por mes-->
+        <div class="bg-gray-800 rounded-xl p-6 shadow-lg">
+            <h2 class="text-2xl font-semibold text-red-600 mb-4 text-center">Evolución de Ventas Mensuales</h2>
+            <p class="text-gray-300 text-center mb-6">
+                Visualiza cómo han evolucionado nuestras ventas a lo largo de los meses.
+            </p>
+            <div class="chart-container" style="position: relative; height: 40vh; width: 100%;">
+            <canvas id="monthlySalesChart"></canvas>
+            </div>
+        </div>
+
+        <!--Marcas más vendidas-->
+        <div class="bg-gray-800 rounded-xl p-6 shadow-lg">
+            <h2 class="text-2xl font-semibold text-red-600 mb-4 text-center">Top de Marcas Más Vendidas</h2>
+            <p class="text-gray-300 text-center mb-6">
+                Descubre cuáles son las marcas preferidas por nuestros clientes.
+            </p>
+            <div class="chart-container" style="position: relative; height: 40vh; width: 100%;">
+                <canvas id="topBrandsChart"></canvas>
+            </div>
+        </div>
+
+        <!--Modelos más vendidos-->
+        <div class="bg-gray-800 rounded-xl p-6 shadow-lg">
+            <h2 class="text-2xl font-semibold text-red-600 mb-4 text-center">Modelos Más Vendidos</h2>
+            <p class="text-gray-300 text-center mb-6">
+                Aquí puedes ver qué modelos han tenido mayor demanda recientemente.
+            </p>
+            <div class="chart-container" style="position: relative; height: 40vh; width: 100%;">
+                <canvas id="mostSoldChart"></canvas>
+            </div>
+        </div>
+
+        <!--Modelos menos vendidos-->
+        <div class="bg-gray-800 rounded-xl p-6 shadow-lg mb-12">
+            <h2 class="text-2xl font-semibold text-red-600 mb-4 text-center">Modelos con Menos Ventas</h2>
+            <p class="text-gray-300 text-center mb-6">
+                Estos son los modelos que presentan menor movimiento en nuestro catálogo.
+            </p>
+            <div class="chart-container" style="position: relative; height: 40vh; width: 100%;">
+                <canvas id="leastSoldChart"></canvas>
+            </div>
+        </div>
+
+    </div>
+
+</body>
